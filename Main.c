@@ -20,7 +20,7 @@
 
 // Prototype statements for functions found within this file.
 interrupt void cpu_timer0_isr(void); 
-interrupt void EPWM_1_INT(void);
+interrupt void EPWM_1_INT(void);    //功率器件的开关频率10K，即中断周期 100us
 interrupt void SCIBRX_ISR(void);
 interrupt void INT3_ISR(void);
 void Init_SiShu(void);
@@ -38,7 +38,7 @@ Uint16 T3Period = 0;
 float32 Modulation=0.25;    // 调制比
 int16 MPeriod=0;
 int32 Tmp=0;
-_iq PolePairs=_IQ(4); 
+_iq PolePairs=_IQ(4);    ////电机极对数
 
 //:::::::::::::::::::::::::::位置环变量定义:::::::::::::::::::::::::::
 long PlaceError=0,Place_now=0, Now_P=0,//圈数
@@ -157,8 +157,8 @@ Uint16 Speed_run=0;
 
 //===============SVPWM计算==================================== 
 Uint16 Sector = 0; 
-_iq	Ualfa=0;  		
-_iq	Ubeta=0;		
+_iq	Ualfa=0;  		//输入：参考电压矢量在alph轴的分量
+_iq	Ubeta=0;		//输入：参考电压矢量在beta轴的分量
 _iq	Ud=0;		
 _iq	Uq=0;			
 _iq	B0=0;			
@@ -169,9 +169,9 @@ _iq	Y=0;
 _iq	Z=0;
 _iq	t1=0;
 _iq	t2=0;
-_iq	Ta=0;
-_iq	Tb=0;
-_iq	Tc=0;
+_iq	Ta=0;        //输出：A相脉冲比较器的比较时刻Tcmpa
+_iq	Tb=0;		//输出：B相脉冲比较器的比较时刻Tcmpa
+_iq	Tc=0;		//输出：C相脉冲比较器的比较时刻Tcmpa
 _iq	MfuncD1=0;
 _iq	MfuncD2=0;
 _iq	MfuncD3=0; 
@@ -208,8 +208,8 @@ long PlaceSet=1000000;//位置环脉冲数
 Uint16 PlaceEnable=0;//位置环使能  1 使能 ;  0 禁止
 
 //=====================参数设置========================================
-float32 E_Ding_DianLiu=4.2;        //设置电机的额定电流的有效值  单位A
-Uint16 BaseSpeed=3000;              //设置电机额定转速
+float32 E_Ding_DianLiu=4.2;        //设置电机的额定电流的有效值  单位A    含小数点，用单精度浮点数
+Uint16 BaseSpeed=3000;              //设置电机额定转速            无符号整型
             
                 
  
@@ -222,7 +222,7 @@ void main(void)
    InitSysCtrl();
  
    InitGpio(); 
-   Pwm_EN_1;
+   Pwm_EN_1;     //GPIO29 为GPIO功能 输出方式时    会驱动 引脚为 高电平，从而控制另一个芯片作用，将3.3V转换为5V，从而驱动IPM驱动芯片输出到对应管子 135 246
 
   
    DINT;
@@ -235,31 +235,32 @@ void main(void)
  
    EALLOW;  // This is needed to write to EALLOW protected registers 
   // PieVectTable.TINT0 = &cpu_timer0_isr; 
-   PieVectTable.EPWM1_INT=&EPWM_1_INT;
+   PieVectTable.EPWM1_INT=&EPWM_1_INT;     //指向中断函数  PWM中断
    PieVectTable.SCIRXINTB= &SCIBRX_ISR;   //设置串口B接受中断的中断向量
-   PieVectTable.XINT3=&INT3_ISR;
+   PieVectTable.XINT3=&INT3_ISR;        //外部中断
 
    EDIS;    // This is needed to disable write to EALLOW protected registers
  
  // InitCpuTimers(); 
-   InitSci_C();
-   InitSci_B();
+   InitSci_C();     //485串口的初始化函数  9600
+   InitSci_B();		//232串口的初始化函数  115200
    InitSpi();
 
    
    
-   MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
+   MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);   //取消注释是烧写进板子里
    InitFlash();
   
-   InitEPwm_1_2_3();//pwm初始化
+   //ePWM.c
+   InitEPwm_1_2_3();//调用epwm初始化函数
    QEP_Init(); //qep初始化
 
    Init_SiShu();
-   ADC_Soc_Init();
+   ADC_Soc_Init();   //ADC模块初始化
    
  
-	eva_close();  
-   Ad_CaiJi(); 
+	eva_close();   //在矢量控制系统开始工作前，强制ePWM123的I/O口不输出pwm波
+   Ad_CaiJi();    //电机还没有启动时的零点电流
    Ad_CaiJi(); 
    Ad_CaiJi(); 
    Ad_CaiJi(); 
@@ -267,14 +268,14 @@ void main(void)
    Ad_CaiJi(); 
    
 
-   if(AD_BUF[7]<150)
+   if(AD_BUF[7]<150)     //150？？ 怎么来的  直流母线电压
    {
-	Pwm_EN_0;//允许PWM使能
+	Pwm_EN_0;//低电平 允许PWM使能
     
     }
    else
    {
-    Pwm_EN_1;//禁止PWM使能
+    Pwm_EN_1;//高电平 禁止PWM使能
 	ShangDian_Err=1;
 
    }
@@ -325,7 +326,7 @@ interrupt void EPWM_1_INT(void)
     
    
   Read_key();
-  Ad_CaiJi();  
+  Ad_CaiJi();   //
    JiSuan_Dl();
    JiSuan_AvgSpeed();
 
@@ -369,7 +370,7 @@ LuBo(ia, ib, ic,Speed);
 				case 5:
 					Position=PositionPhase60;
                     LocationFlag=LocationEnd;//定位结束
-				EQep1Regs.QPOSCNT =BuChang*0+BuChang/2;  
+				EQep1Regs.QPOSCNT =BuChang*0+BuChang/2;     // 不同霍尔对应不同角度  从    QPOSCNT 208到 2288  间隔步进角 416
                  OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 				
 				break;
@@ -426,21 +427,21 @@ LuBo(ia, ib, ic,Speed);
 //====================================================================================================== 
 
 // 旋转方向判定 
-		DirectionQep = EQep1Regs.QEPSTS.bit.QDF;
+		DirectionQep = EQep1Regs.QEPSTS.bit.QDF;//  检测转动方向 0顺1逆
 		
-        RawTheta = _IQ(EQep1Regs.QPOSCNT);
+        RawTheta = _IQ(EQep1Regs.QPOSCNT);   //检测位置计数器的值
         
 		if(DirectionQep ==1) //递增计数，代表顺时针；
 		{
 	
 		 
-              if((OldRawThetaPos>324403200) && (RawTheta<_IQ(900)))
+              if((OldRawThetaPos>324403200) && (RawTheta<_IQ(900)))   //与  两个条件同时都要满足识别过圈  324403200是9900的Q15格式
 			{
-				PosCount += TotalCnt;
+				PosCount += TotalCnt;  //正累加  输出角度为正 0~360
 			}
 
              
-			Place_now= _IQtoF(RawTheta)+PosCount;
+			Place_now= _IQtoF(RawTheta)+PosCount;  //一圈360°分成了10000个脉冲，每个脉冲0.036度
 			OldRawThetaPos = RawTheta;
 			
             
@@ -451,9 +452,9 @@ LuBo(ia, ib, ic,Speed);
 		{		 
              
 			
-              if((RawTheta>294912000) && (OldRawThetaPos<_IQ(1000)))
+              if((RawTheta>294912000) && (OldRawThetaPos<_IQ(1000)))    //识别过圈  294912000是9000的Q15格式，if条件可以随意 9500 500也行
 			{
-				PosCount -= TotalCnt;
+				PosCount -= TotalCnt; //TotalCnt 4*2500  PosCount是个负值。负累加    减计数输出角度为负 -360~0
 			}
 			Place_now = _IQtoF(RawTheta)+PosCount;
 			OldRawThetaPos = RawTheta;
@@ -462,15 +463,15 @@ LuBo(ia, ib, ic,Speed);
                
             
 		} 
-		MechTheta = _IQmpy(1179,RawTheta);
-         if(MechTheta>_IQ(360))
+		MechTheta = _IQmpy(1179,RawTheta);   //1179是0.036的Q15格式  含义就是100us计算一次机械角度，两次转过了多少脉冲，然后算出角度
+         if(MechTheta>_IQ(360))    //2pi    角度限制 0~360
         {MechTheta=MechTheta-_IQ(360);}
          if(MechTheta<_IQ(-360))
         {MechTheta=MechTheta+_IQ(360);}
 		ElecTheta = _IQmpy(PolePairs,MechTheta);   
 	
-		AnglePU=_IQdiv(ElecTheta,_IQ(360))+14876;
-	   	Sine = _IQsinPU(AnglePU);
+		AnglePU=_IQdiv(ElecTheta,_IQ(360))+14876;   //标幺值=实际值/额定值   +校正0.45°
+	   	Sine = _IQsinPU(AnglePU); ///IQ15格式的正弦余弦标幺值
 	   	Cosine = _IQcosPU(AnglePU);    
 
       
@@ -480,20 +481,20 @@ LuBo(ia, ib, ic,Speed);
 //QEP速度计算
 //====================================================================================================== 
 
-	    if (SpeedLoopCount>=SpeedLoopPrescaler)
+	    if (SpeedLoopCount>=SpeedLoopPrescaler)       //进入速度环，周期10*100us=1ms
 	    {   
 // 旋转方向判定 
-			DirectionQep = EQep1Regs.QEPSTS.bit.QDF;			
- 			NewRawTheta =_IQ(EQep1Regs.QPOSCNT);
+			DirectionQep = EQep1Regs.QEPSTS.bit.QDF;		//正交脉冲方向	0顺1逆
+ 			NewRawTheta =_IQ(EQep1Regs.QPOSCNT);            //检测32位位置计数器的值
 // 计算机械角度
 			if(DirectionQep ==1) //递增计数，
 			{
                
                 
-				RawThetaTmp =  OldRawTheta-NewRawTheta ; 
-				if(RawThetaTmp > _IQ(0))
+				RawThetaTmp =  OldRawTheta-NewRawTheta ; //假设OLD 9500 new500
+				if(RawThetaTmp > _IQ(0))     //过圈
 				{
-				 RawThetaTmp = RawThetaTmp - TotalPulse;  
+				 RawThetaTmp = RawThetaTmp - TotalPulse;    //9500-500-10000 =-1000
 				}
                 
                 
@@ -504,90 +505,91 @@ LuBo(ia, ib, ic,Speed);
 
               
                 
-                RawThetaTmp =OldRawTheta-NewRawTheta; 
+                RawThetaTmp =OldRawTheta-NewRawTheta;   //假设old500 ，new 9500
 				if(RawThetaTmp < _IQ(0))
 				{
-				 RawThetaTmp = RawThetaTmp + TotalPulse;
+				 RawThetaTmp = RawThetaTmp + TotalPulse;   //500-9500+10000=1000
 				}
                 
                 
                 
                 
 			}
-			Speed = _IQmpy(RawThetaTmp,65);  				
+			//速度计算，DirectionQep ==0 时正转 速度为正，=1时反转 速度为负
+			Speed = _IQmpy(RawThetaTmp,65);  				//M法测速，T=1ms，RawThetaTmp*60/（2500*4）*0.001 r/min =6*RawThetaTmp PU=6*RawThetaTmp*2^15/基速3000  得到  65？？？？
 			OldRawTheta = NewRawTheta; 
 		    SpeedLoopCount=1; 
 			RawThetaTmp=0; 
 
 //=================位置环控制===================================
-  if(PlaceEnable ==1)
-    {
-        PlaceError = PlaceSet + Place_now;
+//  if(PlaceEnable ==1)    //转子定位过程
+//    {
+//        PlaceError = PlaceSet + Place_now;   //位置设定值与编码器反馈的脉冲信号值     Place_now可正可负，支持正反转  PlaceSet的值就是编码器2s发出的脉冲数
   
-		OutPreSat_Place = PlaceError;
-		if((PlaceError<=10000)&&(PlaceError>=-10000))
-        { 
-           OutPreSat_Place = PlaceError/3; 
-		}  
+//		OutPreSat_Place = PlaceError;   //位置偏差
+//		if((PlaceError<=10000)&&(PlaceError>=-10000))    //10000 单位是脉冲数
+//        {
+//           OutPreSat_Place = PlaceError/3;  //位置环的比例增益调节，无积分调节
+//		}
 
 		
-        if (OutPreSat_Place> 2000)
-        {
-          SpeedRef =  0.5;
-        }
-        else if (OutPreSat_Place< -2000)
-        {
-          SpeedRef =  -0.5;
-        }
-        else
-        {
-          SpeedRef = OutPreSat_Place/(float32)BaseSpeed;
-        }
+//        if (OutPreSat_Place> 2000)      //把速度给定限定在额定转速内，，支持正反转
+//        {
+//          SpeedRef =  0.5;
+//        }
+//        else if (OutPreSat_Place< -2000)
+//        {
+//          SpeedRef =  -0.5;
+//        }
+ //       else
+//        {
+//          SpeedRef = OutPreSat_Place/(float32)BaseSpeed;  //速度给定标幺化
+//        }
 
 	   
-   	}
+//   	}
 
 //=================速度环PI===================================
-			Speed_Ref=_IQ(SpeedRef);
-			Speed_Fdb=Speed;
+//			Speed_Ref=_IQ(SpeedRef);   //速度参考值怎么给？ 通过按键给  ，它是位置环PI调节后的输出OutPreSat_Place及位置设定的前馈值PlaceSet
+//			Speed_Fdb=Speed;      //来自正交编码器QEP速度计算
+//
+//			Speed_Error=Speed_Ref - Speed_Fdb;
+//
+//			Speed_Up=_IQmpy(Speed_Kp,Speed_Error);
+//			Speed_Ui=Speed_Ui + _IQmpy(Speed_Ki,Speed_Up) + _IQmpy(Speed_Ki,Speed_SatError);
 
-			Speed_Error=Speed_Ref - Speed_Fdb;
+//			Speed_OutPreSat=Speed_Up+Speed_Ui;
 
-			Speed_Up=_IQmpy(Speed_Kp,Speed_Error);
-			Speed_Ui=Speed_Ui + _IQmpy(Speed_Ki,Speed_Up) + _IQmpy(Speed_Ki,Speed_SatError);
-
-			Speed_OutPreSat=Speed_Up+Speed_Ui;
-
-			if(Speed_OutPreSat>Speed_OutMax)
-				Speed_Out=Speed_OutMax;
-			else if(Speed_OutPreSat<Speed_OutMin)
-	 			Speed_Out=Speed_OutMin;
-			else 
-				Speed_Out=Speed_OutPreSat;  
+//			if(Speed_OutPreSat>Speed_OutMax)      //速度环的输出限幅值0.99999怎么来的
+//				Speed_Out=Speed_OutMax;
+//			else if(Speed_OutPreSat<Speed_OutMin)
+//	 			Speed_Out=Speed_OutMin;
+//			else
+//				Speed_Out=Speed_OutPreSat;
 	
-			Speed_SatError=Speed_Out-Speed_OutPreSat;  
+//			Speed_SatError=Speed_Out-Speed_OutPreSat;
 
-			IQ_Given=Speed_Out; 
-            Speed_run=1;
-		} 
-	    else 
-            {
-                SpeedLoopCount++; 
-	    }
-        if(Speed_run==1)
-        {
+//			IQ_Given=Speed_Out;
+//            Speed_run=1;  // 执行速度环时，此标志置1
+//		}
+//	    else       // if (SpeedLoopCount>=SpeedLoopPrescaler)
+//            {
+//                SpeedLoopCount++;
+//	    }
+//        if(Speed_run==1)    // ia ib ic theta怎么读取的
+//       {
 
-            
-	    ialfa=ia;
+            //由安装在驱动器内部每相上的霍尔电流传感器反馈的，将磁感应变为电流电压信号
+	    ialfa=ia;   //abc_to_alphbeta  幅值不变的CLARKE变换变换矩阵系数为2/3
 		ibeta=_IQmpy(ia,_IQ(0.57735026918963))+_IQmpy(ib,_IQ(1.15470053837926));  
 
-		id = _IQmpy(ialfa,Cosine) +_IQmpy(ibeta,Sine);
+		id = _IQmpy(ialfa,Cosine) +_IQmpy(ibeta,Sine);  //将alphbeta坐标系下的电流转换到dq坐标系 PARK变换
 		iq = _IQmpy(ibeta,Cosine)- _IQmpy(ialfa,Sine) ; 
 
 //======================================================================================================
 //IQ电流PID调节控制
 //======================================================================================================  
-		IQ_Ref=IQ_Given;
+		IQ_Ref=_IQ(0.5); 			//从0到1  修改   对应0到2.4Nm   恒转矩控制时，屏蔽速度环 位置环
 		IQ_Fdb=iq;
 
 		IQ_Error=IQ_Ref-IQ_Fdb;
@@ -612,28 +614,28 @@ LuBo(ia, ib, ic,Speed);
 //ID电流PID调节控制
 //======================================================================================================  
 		ID_Ref=ID_Given;
-		ID_Fdb=id;
+		ID_Fdb=id;      //alphbeta_to_dq变换的id
 
 		ID_Error=ID_Ref-ID_Fdb;
 
-		ID_Up=_IQmpy(ID_Kp,ID_Error);    
-		ID_Ui=ID_Ui+_IQmpy(ID_Ki,ID_Up)+_IQmpy(ID_Ki,ID_SatError);   
+		ID_Up=_IQmpy(ID_Kp,ID_Error);    //比例
+		ID_Ui=ID_Ui+_IQmpy(ID_Ki,ID_Up)+_IQmpy(ID_Ki,ID_SatError);   //积分饱和误差ID_SatError，抗积分饱和处理anti-windup
 
 		ID_OutPreSat=ID_Up+ID_Ui;    
 
-		if(ID_OutPreSat>ID_OutMax)   
+		if(ID_OutPreSat>ID_OutMax)   //达到上限制  限幅处理
 			ID_Out=ID_OutMax;
-		else if(ID_OutPreSat<ID_OutMin)
+		else if(ID_OutPreSat<ID_OutMin)  //达到下限制  限幅处理
 		 	ID_Out=ID_OutMin;
 		else 
 			ID_Out=ID_OutPreSat;  
 
-		ID_SatError=ID_Out-ID_OutPreSat;     
+		ID_SatError=ID_Out-ID_OutPreSat;     //积分饱和误差即实际值与anti-windup的计算值
 
 		Ud=ID_Out;
 
 //======================================================================================================
-//IPark变换
+//IPark变换  要用到eQEP角度测量函数里的d轴与alph轴之间的夹角
 //====================================================================================================== 
 		Ualfa = _IQmpy(Ud,Cosine) - _IQmpy(Uq,Sine);
 		Ubeta = _IQmpy(Uq,Cosine) + _IQmpy(Ud,Sine); 
@@ -641,16 +643,16 @@ LuBo(ia, ib, ic,Speed);
 //======================================================================================================
 //SVPWM实现
 //====================================================================================================== 
-        B0=Ubeta;
+        B0=Ubeta;       // 相当于二相静止坐标--到三相静止变换出Uabc
 		B1=_IQmpy(_IQ(0.8660254),Ualfa)- _IQmpy(_IQ(0.5),Ubeta);// 0.8660254 = sqrt(3)/2 
 		B2=_IQmpy(_IQ(-0.8660254),Ualfa)- _IQmpy(_IQ(0.5),Ubeta); // 0.8660254 = sqrt(3)/2
 
-		Sector=0;
-		if(B0>_IQ(0)) Sector =1;
-		if(B1>_IQ(0)) Sector =Sector +2;
-		if(B2>_IQ(0)) Sector =Sector +4; 
+		Sector=0;          //扇区判别，扇区N=a+2b+4c
+		if(B0>_IQ(0)) Sector =1;  //A=1,else A=0
+		if(B1>_IQ(0)) Sector =Sector +2;  //B=1,else B=0
+		if(B2>_IQ(0)) Sector =Sector +4;   //C=1,else C=0
 
-		X=Ubeta;//va
+		X=Ubeta;//va        基本矢量作用时间是 X Y Z的线性组合
 		Y=_IQmpy(_IQ(0.8660254),Ualfa)+ _IQmpy(_IQ(0.5),Ubeta);// 0.8660254 = sqrt(3)/2 vb
 		Z=_IQmpy(_IQ(-0.8660254),Ualfa)+ _IQmpy(_IQ(0.5),Ubeta); // 0.8660254 = sqrt(3)/2 vc
 
@@ -660,7 +662,7 @@ LuBo(ia, ib, ic,Speed);
 			t_01=Z;
 			t_02=Y;
 
-       if((t_01+t_02)>_IQ(1))
+       if((t_01+t_02)>_IQ(1))         //对过调制情况进行调整
        {
         t1=_IQmpy(_IQdiv(t_01, (t_01+t_02)),_IQ(1));
        t2=_IQmpy(_IQdiv(t_02, (t_01+t_02)),_IQ(1));
@@ -671,7 +673,7 @@ LuBo(ia, ib, ic,Speed);
        t2=t_02;
        }
 
-			Tb=_IQmpy(_IQ(0.5),(_IQ(1)-t1-t2));
+			Tb=_IQmpy(_IQ(0.5),(_IQ(1)-t1-t2));  //作用时间分配
 			Ta=Tb+t1;
 			Tc=Ta+t2;
 		}
@@ -773,7 +775,7 @@ LuBo(ia, ib, ic,Speed);
 			Tb=Ta+t2;
 		} 
 
-		MfuncD1=_IQmpy(_IQ(2),(_IQ(0.5)-Ta));
+		MfuncD1=_IQmpy(_IQ(2),(_IQ(0.5)-Ta));     //SVPWM。Ta/Tb/Tc的取值范围变换到正负一
 		MfuncD2=_IQmpy(_IQ(2),(_IQ(0.5)-Tb));
 		MfuncD3=_IQmpy(_IQ(2),(_IQ(0.5)-Tc)); 
 
@@ -792,12 +794,12 @@ LuBo(ia, ib, ic,Speed);
 	 EPwm3Regs.CMPA.half.CMPA = (int16)(Tmp>>16) + (int16)(T1Period>>1); // Q0 = (Q15->Q0)/2 + (Q0/2) 
 
          
-	}
-	}
+	}     // if (SpeedLoopCount>=SpeedLoopPrescaler)       //进入速度环，周期10*100us=1ms
+	}   //	else if(LocationFlag==LocationEnd)
 
 
 
-}
+}   //if run_pmsm==1&fault==0
 
 if(DC_ON_flag==1)
 {
@@ -829,10 +831,10 @@ interrupt void SCIBRX_ISR(void)     // SCI-B
 	
 }
 
-void Init_SiShu(void)
+void Init_SiShu(void)      //电流保护
 { 
 
- GuoliuZhi=15*E_Ding_DianLiu;
+ GuoliuZhi=15*E_Ding_DianLiu;     //规定
  E_Ding_DianLiu=1.414*E_Ding_DianLiu;
  
  
