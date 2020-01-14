@@ -1,20 +1,21 @@
 //*****************************************************************************************************
-//FlashºÍRAMÈí¼ş°æ±¾ÇĞ»»ËµÃ÷(³ÌĞòÄ¬ÈÏÎªram°æ±¾)
+//Flashå’ŒRAMè½¯ä»¶ç‰ˆæœ¬åˆ‡æ¢è¯´æ˜(ç¨‹åºé»˜è®¤ä¸ºramç‰ˆæœ¬)
 //
-//Ò».ÇĞ»»ÎªFlashÉÕĞ´°æ±¾·½·¨
-//1.½«Ö÷³ÌĞòÖĞµÄ:MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
+//ä¸€.åˆ‡æ¢ä¸ºFlashçƒ§å†™ç‰ˆæœ¬æ–¹æ³•
+//1.å°†ä¸»ç¨‹åºä¸­çš„:MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 //               InitFlash();
-//  Á½¸öº¯ÊıÈ¡Ïû×¢ÊÍ
-//2.½«¹¤³ÌÖĞµÄ28335_RAM_lnk.cmd´Ó¹¤³ÌÖĞÉ¾³ı£¬Ìí¼ÓCMDÎÄ¼ş¼ĞÏÂµÄF28335.cmdÎÄ¼ş£¬È«±àÒëÒ»´Î¼´¿ÉÉÕĞ´¡£
+//  ä¸¤ä¸ªå‡½æ•°å–æ¶ˆæ³¨é‡Š
+//2.å°†å·¥ç¨‹ä¸­çš„28335_RAM_lnk.cmdä»å·¥ç¨‹ä¸­åˆ é™¤ï¼Œæ·»åŠ CMDæ–‡ä»¶å¤¹ä¸‹çš„F28335.cmdæ–‡ä»¶ï¼Œå…¨ç¼–è¯‘ä¸€æ¬¡å³å¯çƒ§å†™ã€‚
 //
-//¶ş.ÇĞ»»ÎªRAMÔÚÏß·ÂÕæ°æ±¾·½·¨
-//1.½«Ö÷³ÌĞòÖĞµÄ:MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
+//äºŒ.åˆ‡æ¢ä¸ºRAMåœ¨çº¿ä»¿çœŸç‰ˆæœ¬æ–¹æ³•
+//1.å°†ä¸»ç¨‹åºä¸­çš„:MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 //               InitFlash();
-//  Á½¸öº¯Êı×¢ÊÍµô
-//2.½«¹¤³ÌÖĞµÄF28335.cmd´Ó¹¤³ÌÖĞÉ¾³ı£¬Ìí¼ÓCMDÎÄ¼ş¼ĞÏÂµÄ28335_RAM_lnk.cmdÎÄ¼ş£¬È«±àÒëÒ»´Î¼´¿É¡£
+//  ä¸¤ä¸ªå‡½æ•°æ³¨é‡Šæ‰
+//2.å°†å·¥ç¨‹ä¸­çš„F28335.cmdä»å·¥ç¨‹ä¸­åˆ é™¤ï¼Œæ·»åŠ CMDæ–‡ä»¶å¤¹ä¸‹çš„28335_RAM_lnk.cmdæ–‡ä»¶ï¼Œå…¨ç¼–è¯‘ä¸€æ¬¡å³å¯ã€‚
 //
 //*****************************************************************************************************
-
+//**éœ€è¦å¯¹ä¸»è¢«åŠ¨æ¨¡å¼çš„æ™ºèƒ½åˆ‡æ¢åšä¸‹ä¸€æ­¥ç¼–å†™ï¼Œç­‰é‡‡é›†å¥½è¸æ¿åŠ›/åŠ›çŸ©çš„ä¿¡å·å¯¼å…¥åˆ°matlabä¸­å¯¹å®ƒåšåŠ›çŸ©-é€Ÿåº¦çš„æ›²çº¿ï¼Œä»¥ä»¿çœŸä¸­çš„â€œæ£€æµ‹åé¦ˆä¿¡å·â€ï¼Œ
+//**å½¢æˆå®é™…ä¸­çš„è½¬çŸ©-é€Ÿåº¦å¯¹åº”å…³ç³»è¡¨ï¼ŒæŸ¥è¡¨å³å¯ä¿®æ”¹iqçš„æŒ‡ä»¤å€¼
 
 #include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
 
@@ -26,26 +27,26 @@ interrupt void INT3_ISR(void);
 void Init_SiShu(void);
 
 //*****************************************************************************************************
-//È«¾Ö±äÁ¿¶¨ÒåÓë³õÊ¼»¯
+//å…¨å±€å˜é‡å®šä¹‰ä¸åˆå§‹åŒ–
 //***************************************************************************************************** 
 float32 i=0;
 float32 j=0;
 float32 k=0;
 Uint16 IsrTicker = 0;
-Uint16 BackTicker = 0; //ÓÃÓÚ´ÎÊı¼ÆÊı
-Uint16 T1Period=0;     // T1¶¨Ê±Æ÷ÖÜÆÚ(Q0)
+Uint16 BackTicker = 0; //ç”¨äºæ¬¡æ•°è®¡æ•°
+Uint16 T1Period=0;     // T1å®šæ—¶å™¨å‘¨æœŸ(Q0)
 Uint16 T3Period = 0;   
-float32 Modulation=0.25;    // µ÷ÖÆ±È
+float32 Modulation=0.25;    // è°ƒåˆ¶æ¯”
 int16 MPeriod=0;
 int32 Tmp=0;
 _iq PolePairs=_IQ(4); 
 float limit=0.07;
 Uint16 torquestart=0;
 Uint16 speedstart=0;
-//:::::::::::::::::::::::::::Î»ÖÃ»·±äÁ¿¶¨Òå:::::::::::::::::::::::::::
-long PlaceError=0,Place_now=0, Now_P=0,//È¦Êı
-              OutPreSat_Place=0;//Î»ÖÃ±äÁ¿Öµ¶¨Òå
-Uint16 PlaceSetBit=0;  //Î»ÖÃÉè¶¨±êÖ¾Î»
+//:::::::::::::::::::::::::::ä½ç½®ç¯å˜é‡å®šä¹‰:::::::::::::::::::::::::::
+long PlaceError=0,Place_now=0, Now_P=0,//åœˆæ•°
+              OutPreSat_Place=0;//ä½ç½®å˜é‡å€¼å®šä¹‰
+Uint16 PlaceSetBit=0;  //ä½ç½®è®¾å®šæ ‡å¿—ä½
 
 int32 	PosCount = 0;
 
@@ -53,7 +54,7 @@ int32 	PosCount = 0;
 float32 MfuncF1=0;
 float32 MfuncF2=0;
 float32 MfuncF3=0;  
-//===============×ª×Ó³õÊ¼Î»ÖÃ¶¨Î»=============================  
+//===============è½¬å­åˆå§‹ä½ç½®å®šä½=============================  
 Uint16 LocationFlag=1;
 Uint16 LocationEnd=0; 
 Uint16 Position=1;
@@ -64,7 +65,7 @@ Uint16 PositionPhase240=4;
 Uint16 PositionPhase300=5;
 Uint16 PositionPhase360=6;  
 
-//===============DACÄ£Äâ===================================== 
+//===============DACæ¨¡æ‹Ÿ===================================== 
 _iq DACTemp0=0;
 _iq DACTemp1=0;
 _iq DACTemp2=0; 
@@ -74,34 +75,34 @@ _iq MfuncC2=0;
 _iq MfuncC3=0; 
 Uint16 ZhengFan=1;  
  
-//===============×ª×ÓËÙ¶È¼ÆËã===================================== 
-Uint16 SpeedLoopPrescaler = 10;     // ËÙ¶È»·¶¨±ê
-Uint16 SpeedLoopCount = 1;          // ËÙ¶È»·¼ÆÊı  
+//===============è½¬å­é€Ÿåº¦è®¡ç®—===================================== 
+Uint16 SpeedLoopPrescaler = 10;     // é€Ÿåº¦ç¯å®šæ ‡
+Uint16 SpeedLoopCount = 1;          // é€Ÿåº¦ç¯è®¡æ•°  
 _iq NewRawTheta=0;
 _iq OldRawTheta=0; 
-_iq SpeedRpm=0;                     //ËÙ¶È£¬µ¥Î»£º×ª/Ã¿·ÖÖÓ
+_iq SpeedRpm=0;                     //é€Ÿåº¦ï¼Œå•ä½ï¼šè½¬/æ¯åˆ†é’Ÿ
 Uint16 Hall_Fault=0;
 _iq RawThetaTmp=0;
 float32 SpeedRef=0;
-_iq Speed=0;                        //ËÙ¶È£¬±êçÛÖµ
+_iq Speed=0;                        //é€Ÿåº¦ï¼Œæ ‡å¹ºå€¼
 
-//===============×ª×Ó½Ç¶È¼ÆËã===================================
-Uint16 DirectionQep=0;               //×ª×ÓĞı×ª·½Ïò
+//===============è½¬å­è§’åº¦è®¡ç®—===================================
+Uint16 DirectionQep=0;               //è½¬å­æ—‹è½¬æ–¹å‘
 _iq RawTheta=0;
 _iq OldRawThetaPos = 0;
 
 
 _iq TotalPulse=0; 
 
-_iq MechTheta = 0;                   //»úĞµ½Ç¶È£¬µ¥Î»£º¶È
-_iq ElecTheta = 0;                   //µçÆø½Ç¶È£¬µ¥Î»£º¶È
-_iq	AnglePU=0;                       //½Ç¶È±êçÛ»¯
+_iq MechTheta = 0;                   //æœºæ¢°è§’åº¦ï¼Œå•ä½ï¼šåº¦
+_iq ElecTheta = 0;                   //ç”µæ°”è§’åº¦ï¼Œå•ä½ï¼šåº¦
+_iq	AnglePU=0;                       //è§’åº¦æ ‡å¹ºåŒ–
 _iq	Cosine=0;
 _iq	Sine=0;
 
 
 
-//===============¿ØÖÆÈÆ×éµçÁ÷¼ÆËã============================ 
+//===============æ§åˆ¶ç»•ç»„ç”µæµè®¡ç®—============================ 
 _iq ia=0;
 _iq ib=0;
 _iq ic=0;
@@ -110,7 +111,7 @@ _iq ibeta=0;
 _iq id=0;
 _iq iq=0; 
 
-//===============PI¿ØÖÆÆ÷²ÎÊı¼ÆËã============================ 
+//===============PIæ§åˆ¶å™¨å‚æ•°è®¡ç®—============================ 
 _iq ID_Given=0;
 _iq ID_Ref=0;
 _iq ID_Fdb=0;
@@ -141,7 +142,7 @@ _iq IQ_OutMax=_IQ(1);
 _iq IQ_OutMin=_IQ(-1); 
 _iq IQ_Out=0; 
 
-_iq Speed_Given=_IQ(0.2); //ËÙ¶È¸ø¶¨    ±êçÛÖµ 0.2==>600RPM£¬×î¸ß×ªËÙ1.0==>3000RPM
+_iq Speed_Given=_IQ(0.2); //é€Ÿåº¦ç»™å®š    æ ‡å¹ºå€¼ 0.2==>600RPMï¼Œæœ€é«˜è½¬é€Ÿ1.0==>3000RPM
 _iq Speed_Ref=0;
 _iq Speed_Fdb=0;
 _iq Speed_Error=0; 
@@ -157,7 +158,7 @@ _iq Speed_OutMin=-_IQ(0.99999);
 _iq Speed_Out=0;  
 Uint16 Speed_run=0;
 
-//===============SVPWM¼ÆËã==================================== 
+//===============SVPWMè®¡ç®—==================================== 
 Uint16 Sector = 0; 
 _iq	Ualfa=0;  		
 _iq	Ubeta=0;		
@@ -191,27 +192,27 @@ _iq RawCnt2=0;
 Uint16 ShangDian_Err=0;
 
 
-//========================ËÙ¶È»·PI²ÎÊı=================================
+//========================é€Ÿåº¦ç¯PIå‚æ•°=================================
 _iq Speed_Kp=_IQ(8);
 _iq Speed_Ki=_IQ(0.005);
 //=====================================================================
 
-//========================QÖáµçÁ÷»·PI²ÎÊı==============================
+//========================Qè½´ç”µæµç¯PIå‚æ•°==============================
 _iq IQ_Kp=_IQ(0.3);
 _iq IQ_Ki=_IQ(0.002);
 //=====================================================================
 
-//========================DÖáµçÁ÷»·PI²ÎÊı==============================
+//========================Dè½´ç”µæµç¯PIå‚æ•°==============================
 _iq ID_Kp=_IQ(0.3);
 _iq ID_Ki=_IQ(0.002);
 //=====================================================================
 
-long PlaceSet=1000000;//Î»ÖÃ»·Âö³åÊı
-Uint16 PlaceEnable=0;//Î»ÖÃ»·Ê¹ÄÜ  1 Ê¹ÄÜ ;  0 ½ûÖ¹
+long PlaceSet=1000000;//ä½ç½®ç¯è„‰å†²æ•°
+Uint16 PlaceEnable=0;//ä½ç½®ç¯ä½¿èƒ½  1 ä½¿èƒ½ ;  0 ç¦æ­¢
 
-//=====================²ÎÊıÉèÖÃ========================================
-float32 E_Ding_DianLiu=4.2;        //ÉèÖÃµç»úµÄ¶î¶¨µçÁ÷µÄÓĞĞ§Öµ  µ¥Î»A
-Uint16 BaseSpeed=3000;              //ÉèÖÃµç»ú¶î¶¨×ªËÙ
+//=====================å‚æ•°è®¾ç½®========================================
+float32 E_Ding_DianLiu=4.2;        //è®¾ç½®ç”µæœºçš„é¢å®šç”µæµçš„æœ‰æ•ˆå€¼  å•ä½A
+Uint16 BaseSpeed=3000;              //è®¾ç½®ç”µæœºé¢å®šè½¬é€Ÿ
             
                 
  
@@ -238,7 +239,7 @@ void main(void)
    EALLOW;  // This is needed to write to EALLOW protected registers 
   // PieVectTable.TINT0 = &cpu_timer0_isr; 
    PieVectTable.EPWM1_INT=&EPWM_1_INT;
-   PieVectTable.SCIRXINTB= &SCIBRX_ISR;   //ÉèÖÃ´®¿ÚB½ÓÊÜÖĞ¶ÏµÄÖĞ¶ÏÏòÁ¿
+   PieVectTable.SCIRXINTB= &SCIBRX_ISR;   //è®¾ç½®ä¸²å£Bæ¥å—ä¸­æ–­çš„ä¸­æ–­å‘é‡
    PieVectTable.XINT3=&INT3_ISR;
 
    EDIS;    // This is needed to disable write to EALLOW protected registers
@@ -253,8 +254,8 @@ void main(void)
  //  MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
  //  InitFlash();
   
-   InitEPwm_1_2_3();//pwm³õÊ¼»¯
-   QEP_Init(); //qep³õÊ¼»¯
+   InitEPwm_1_2_3();//pwmåˆå§‹åŒ–
+   QEP_Init(); //qepåˆå§‹åŒ–
 
    Init_SiShu();
    ADC_Soc_Init();
@@ -271,12 +272,12 @@ void main(void)
 
    if(AD_BUF[7]<150)
    {
-	Pwm_EN_0;//ÔÊĞíPWMÊ¹ÄÜ
+	Pwm_EN_0;//å…è®¸PWMä½¿èƒ½
     
     }
    else
    {
-    Pwm_EN_1;//½ûÖ¹PWMÊ¹ÄÜ
+    Pwm_EN_1;//ç¦æ­¢PWMä½¿èƒ½
 	ShangDian_Err=1;
 
    }
@@ -293,7 +294,7 @@ void main(void)
    PieCtrlRegs.PIEIER9.bit.INTx3=1;//scib
    PieCtrlRegs.PIEIER12.bit.INTx1=1;//xint3
     
-     Init_lcd();  //³õÊ¼»¯ÆÁÄ»
+     Init_lcd();  //åˆå§‹åŒ–å±å¹•
  
    EINT;   // Enable Global interrupt INTM
    ERTM;   // Enable Global realtime interrupt DBGM
@@ -317,7 +318,7 @@ interrupt void EPWM_1_INT(void)
        IPM_BaoHu();
     Show_time++;
     Show_time2++;
-       if(Show_time2==1000)//1Ãë
+       if(Show_time2==1000)//1ç§’
     {
         Show_time2=0;
         lcd_dis_flag=1;
@@ -328,14 +329,14 @@ interrupt void EPWM_1_INT(void)
   JiSuan_AvgSpeed();
 
 //////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////×ªËÙÄ£Ê½/////////////////////////////////////////////
+/////////////////////////////////è½¬é€Ÿæ¨¡å¼/////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 //====================================================================================
  if(Run_PMSM==1&&IPM_Fault==0)
 {
  if(speedstart==1&&torquestart==0)
  {
-	 LuBo(ia, ib, Uq,Speed);   //Ê¾²¨Æ÷¼ì²â
+	 LuBo(ia, ib, Uq,Speed);   //ç¤ºæ³¢å™¨æ£€æµ‹
 	if(LocationFlag!=LocationEnd)
 	{ 
             Modulation=0.95;
@@ -357,42 +358,42 @@ interrupt void EPWM_1_INT(void)
 			{
 				case 5:
 					Position=PositionPhase60;// 1
-                    LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                    LocationFlag=LocationEnd;//å®šä½ç»“æŸ
 				EQep1Regs.QPOSCNT =BuChang*0+BuChang/2;    //BuChang=416
                  OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 			    break;
 				
 				case 1:
 					Position=PositionPhase360;
-                     LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                     LocationFlag=LocationEnd;//å®šä½ç»“æŸ
 				EQep1Regs.QPOSCNT =BuChang*5+BuChang/2; 
                OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 				break;
 
 				case 3:
 					Position=PositionPhase300;
-                     LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                     LocationFlag=LocationEnd;//å®šä½ç»“æŸ
 				EQep1Regs.QPOSCNT =BuChang*4+BuChang/2; 
                  OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 				break;
 
 				case 2:
 					Position=PositionPhase240;
-                     LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                     LocationFlag=LocationEnd;//å®šä½ç»“æŸ
 				EQep1Regs.QPOSCNT =BuChang*3+BuChang/2; 
                   OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 				break;
 
 				case 6:
 					Position=PositionPhase180;
-                     LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                     LocationFlag=LocationEnd;//å®šä½ç»“æŸ
 				EQep1Regs.QPOSCNT =BuChang*2+BuChang/2; 
                   OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 				break;
 
 				case 4:
 					Position=PositionPhase120;
-                     LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                     LocationFlag=LocationEnd;//å®šä½ç»“æŸ
 				    EQep1Regs.QPOSCNT =BuChang*1+BuChang/2;  
                      OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 				break;
@@ -401,27 +402,27 @@ interrupt void EPWM_1_INT(void)
                     DC_ON_1;
                     Run_PMSM=2;
                     eva_close();
-                    Hall_Fault=1;//»ô¶ûĞÅºÅ´íÎóÆô¶¯Í£Ö¹
+                    Hall_Fault=1;//éœå°”ä¿¡å·é”™è¯¯å¯åŠ¨åœæ­¢
                     break;
 			}
 	} 
 //=====================================================================================================
-//³õÊ¼Î»ÖÃ¶¨Î»½áÊø£¬¿ªÊ¼±Õ»·¿ØÖÆ
+//åˆå§‹ä½ç½®å®šä½ç»“æŸï¼Œå¼€å§‹é—­ç¯æ§åˆ¶
 //=====================================================================================================
 	else if(LocationFlag==LocationEnd)
 	{  
 		  
        
 //======================================================================================================
-//QEP½Ç¶È¼ÆËã
+//QEPè§’åº¦è®¡ç®—
 //====================================================================================================== 
 
-// Ğı×ª·½ÏòÅĞ¶¨ 
-		DirectionQep = EQep1Regs.QEPSTS.bit.QDF;   //0ÄæÊ±Õë·½Ïò 1Ë³Ê±Õë·½Ïò
+// æ—‹è½¬æ–¹å‘åˆ¤å®š 
+		DirectionQep = EQep1Regs.QEPSTS.bit.QDF;   //0é€†æ—¶é’ˆæ–¹å‘ 1é¡ºæ—¶é’ˆæ–¹å‘
 		
         RawTheta = _IQ(EQep1Regs.QPOSCNT);
         
-		if(DirectionQep ==1) //µİÔö¼ÆÊı£¬´ú±íË³Ê±Õë£»
+		if(DirectionQep ==1) //é€’å¢è®¡æ•°ï¼Œä»£è¡¨é¡ºæ—¶é’ˆï¼›
 		{
 	
 		 
@@ -435,7 +436,7 @@ interrupt void EPWM_1_INT(void)
 			OldRawThetaPos = RawTheta;
 
         }
-		else if(DirectionQep ==0)//µİ¼õ¼ÆÊı£¬´ú±íÄæÊ±Õë
+		else if(DirectionQep ==0)//é€’å‡è®¡æ•°ï¼Œä»£è¡¨é€†æ—¶é’ˆ
 		    {
              
 			
@@ -446,15 +447,15 @@ interrupt void EPWM_1_INT(void)
 			Place_now = _IQtoF(RawTheta)+PosCount;
 			OldRawThetaPos = RawTheta;
 		    }
-		 MechTheta = _IQmpy(1179,RawTheta);  //1179=360/10000*x2^15  ÊÇÃ¿¸öÂö³å¼ä¸ô´ú±íµÄ½Ç¶ÈµÄq¸ñÊ½
-		                                     //RawThetaÊÇ½Ç¶È¶ÔÓ¦µÄÂö³åÊıµÄq15¸ñÊ½£¬
-		                                     //Á½¸öÏà³Ë  µÃµ½Êµ¼ÊµÄ×ª½Ç½Ç¶ÈµÄq15¸ñÊ½
-         if(MechTheta>_IQ(360))              //Èç¹û´óÓÚ360 ËµÃ÷¼ÓÁËÒ»È¦  ¾Í¼õÈ¥360
+		 MechTheta = _IQmpy(1179,RawTheta);  //1179=360/10000*x2^15  æ˜¯æ¯ä¸ªè„‰å†²é—´éš”ä»£è¡¨çš„è§’åº¦çš„qæ ¼å¼
+		                                     //RawThetaæ˜¯è§’åº¦å¯¹åº”çš„è„‰å†²æ•°çš„q15æ ¼å¼ï¼Œ
+		                                     //ä¸¤ä¸ªç›¸ä¹˜  å¾—åˆ°å®é™…çš„è½¬è§’è§’åº¦çš„q15æ ¼å¼
+         if(MechTheta>_IQ(360))              //å¦‚æœå¤§äº360 è¯´æ˜åŠ äº†ä¸€åœˆ  å°±å‡å»360
         {MechTheta=MechTheta-_IQ(360);}
-         if(MechTheta<_IQ(-360))            //Ğ¡ÓÚ-360 ËµÃ÷·´Ïò×ª¶¯¶àÁËÒ»È¦  ¼Ó360¼´¿É
+         if(MechTheta<_IQ(-360))            //å°äº-360 è¯´æ˜åå‘è½¬åŠ¨å¤šäº†ä¸€åœˆ  åŠ 360å³å¯
         {MechTheta=MechTheta+_IQ(360);}
-		ElecTheta = _IQmpy(PolePairs,MechTheta);   //µç½Ç¶È=¼«¶ÔÊı*»úĞµ½Ç¶È
-	    AnglePU=_IQdiv(ElecTheta,_IQ(360))+14876;   //½Ç¶ÈµÄ±êçÛÖµ=µç½Ç¶ÈµÄ±êçÛÖµ+½ÃÕıÖµ£¨0.45£©[³§¼Ò¸ø¶¨]
+		ElecTheta = _IQmpy(PolePairs,MechTheta);   //ç”µè§’åº¦=æå¯¹æ•°*æœºæ¢°è§’åº¦
+	    AnglePU=_IQdiv(ElecTheta,_IQ(360))+14876;   //è§’åº¦çš„æ ‡å¹ºå€¼=ç”µè§’åº¦çš„æ ‡å¹ºå€¼+çŸ«æ­£å€¼ï¼ˆ0.45ï¼‰[å‚å®¶ç»™å®š]
 	   	Sine = _IQsinPU(AnglePU);
 	   	Cosine = _IQcosPU(AnglePU);    
 
@@ -462,16 +463,16 @@ interrupt void EPWM_1_INT(void)
 
 
 //======================================================================================================
-//QEPËÙ¶È¼ÆËã     SpeedLoopCount¼ÆÊı10´Î£¬¶ÔËÙ¶È»·½øĞĞÒ»´Î¶¨±ê£¬ÔËĞĞÒ»´ÎPI¿ØÖÆ      EpwmÊ±»ùÎª100ms
+//QEPé€Ÿåº¦è®¡ç®—     SpeedLoopCountè®¡æ•°10æ¬¡ï¼Œå¯¹é€Ÿåº¦ç¯è¿›è¡Œä¸€æ¬¡å®šæ ‡ï¼Œè¿è¡Œä¸€æ¬¡PIæ§åˆ¶      Epwmæ—¶åŸºä¸º100ms
 //====================================================================================================== 
 
 	  if (SpeedLoopCount>=SpeedLoopPrescaler)
 	  {
-// Ğı×ª·½ÏòÅĞ¶¨ 
-			DirectionQep = EQep1Regs.QEPSTS.bit.QDF;	//0¡ª¡ªÄæÊ±Õë£¬1¡ª¡ªË³Ê±Õë
- 			NewRawTheta =_IQ(EQep1Regs.QPOSCNT);        //µ±Ç°½Ç¶È¶ÔÓ¦µÄ¼ÆÊıÖµ
-// ¼ÆËã»úĞµ½Ç¶È
-			if(DirectionQep ==1) //µİÔö¼ÆÊı£¬
+// æ—‹è½¬æ–¹å‘åˆ¤å®š 
+			DirectionQep = EQep1Regs.QEPSTS.bit.QDF;	//0â€”â€”é€†æ—¶é’ˆï¼Œ1â€”â€”é¡ºæ—¶é’ˆ
+ 			NewRawTheta =_IQ(EQep1Regs.QPOSCNT);        //å½“å‰è§’åº¦å¯¹åº”çš„è®¡æ•°å€¼
+// è®¡ç®—æœºæ¢°è§’åº¦
+			if(DirectionQep ==1) //é€’å¢è®¡æ•°ï¼Œ
 			{
 			RawThetaTmp = OldRawTheta-NewRawTheta ;
 				if(RawThetaTmp > _IQ(0))
@@ -479,7 +480,7 @@ interrupt void EPWM_1_INT(void)
 				 RawThetaTmp = RawThetaTmp - TotalPulse;  
 				}
 			}
-			else if(DirectionQep ==0) //µİ¼õ¼ÆÊı
+			else if(DirectionQep ==0) //é€’å‡è®¡æ•°
 			{
             RawThetaTmp =OldRawTheta-NewRawTheta;
 				if(RawThetaTmp < _IQ(0))
@@ -487,20 +488,20 @@ interrupt void EPWM_1_INT(void)
 				 RawThetaTmp = RawThetaTmp + TotalPulse;
 				}
 			}
-			Speed = _IQmpy(RawThetaTmp,65);  	 //ËÙ¶È±êçÛÖµ
-//M·¨²âËÙ£¬T=1ms£¬RawThetaTmp*60/£¨2500*4£©*0.001 r/min =6*RawThetaTmp PU=6*RawThetaTmp*2^15/»ùËÙ3000  µÃµ½  65
+			Speed = _IQmpy(RawThetaTmp,65);  	 //é€Ÿåº¦æ ‡å¹ºå€¼
+//Mæ³•æµ‹é€Ÿï¼ŒT=1msï¼ŒRawThetaTmp*60/ï¼ˆ2500*4ï¼‰*0.001 r/min =6*RawThetaTmp PU=6*RawThetaTmp*2^15/åŸºé€Ÿ3000  å¾—åˆ°  65
 			OldRawTheta = NewRawTheta; 
 		    SpeedLoopCount=1; 
 			RawThetaTmp=0; 
 
-//=================Î»ÖÃ»·¿ØÖÆ===================================
-       if(PlaceEnable ==1)   //Î»ÖÃÊ¹ÄÜ»· 1Ê¹ÄÜ 0½ûÖ¹
+//=================ä½ç½®ç¯æ§åˆ¶===================================
+       if(PlaceEnable ==1)   //ä½ç½®ä½¿èƒ½ç¯ 1ä½¿èƒ½ 0ç¦æ­¢
        {
-           PlaceError = PlaceSet + Place_now;   //100È¦+0£¿
+           PlaceError = PlaceSet + Place_now;   //100åœˆ+0ï¼Ÿ
   		   OutPreSat_Place = PlaceError;
-		 if((PlaceError<=10000)&&(PlaceError>=-10000))  //£¿ÔõÃ´½øÈë
+		 if((PlaceError<=10000)&&(PlaceError>=-10000))  //ï¼Ÿæ€ä¹ˆè¿›å…¥
         {
-           OutPreSat_Place = PlaceError/3;   //1/3ÊÇÎªÊ²Ã´
+           OutPreSat_Place = PlaceError/3;   //1/3æ˜¯ä¸ºä»€ä¹ˆ
 		 }
             if (OutPreSat_Place> 2000)
              {
@@ -516,13 +517,13 @@ interrupt void EPWM_1_INT(void)
                }
   	   }
 
-//=================ËÙ¶È»·PI===================================
+//=================é€Ÿåº¦ç¯PI===================================
 		    Speed_Ref=_IQ(SpeedRef);
 			Speed_Fdb=Speed;
 			Speed_Error=Speed_Ref - Speed_Fdb;
 		    Speed_Up=_IQmpy(Speed_Kp,Speed_Error);
 			Speed_Ui=Speed_Ui + _IQmpy(Speed_Ki,Speed_Up) + _IQmpy(Speed_Ki,Speed_SatError);
-			Speed_OutPreSat=Speed_Up+Speed_Ui;   //PI¿ØÖÆ
+			Speed_OutPreSat=Speed_Up+Speed_Ui;   //PIæ§åˆ¶
 			if(Speed_OutPreSat>Speed_OutMax)
 				Speed_Out=Speed_OutMax;
 			else if(Speed_OutPreSat<Speed_OutMin)
@@ -530,7 +531,7 @@ interrupt void EPWM_1_INT(void)
 			else
 				Speed_Out=Speed_OutPreSat;
 
-			Speed_SatError=Speed_Out-Speed_OutPreSat;  //³¬¹ıÏŞÖÆ²Å»áÓĞÕâÏî
+			Speed_SatError=Speed_Out-Speed_OutPreSat;  //è¶…è¿‡é™åˆ¶æ‰ä¼šæœ‰è¿™é¡¹
 
 			IQ_Given=Speed_Out;
            Speed_run=1;
@@ -544,20 +545,20 @@ interrupt void EPWM_1_INT(void)
         if(Speed_run==1)
        {
 	    ialfa=ia;
-		ibeta=_IQmpy(ia,_IQ(0.57735026918963))+_IQmpy(ib,_IQ(1.15470053837926));  //·ùÖµ²»±ä±ä»»µÄ¿ËÀ­¿Ë±ä»»
-		     //µÚÒ»¸öÏµÊıÊÇ¸ùÏÂ1/3.µÚ¶ş¸öÊÇ2/¸ùÏÂ3
+		ibeta=_IQmpy(ia,_IQ(0.57735026918963))+_IQmpy(ib,_IQ(1.15470053837926));  //å¹…å€¼ä¸å˜å˜æ¢çš„å…‹æ‹‰å…‹å˜æ¢
+		     //ç¬¬ä¸€ä¸ªç³»æ•°æ˜¯æ ¹ä¸‹1/3.ç¬¬äºŒä¸ªæ˜¯2/æ ¹ä¸‹3
 		id = _IQmpy(ialfa,Cosine) +_IQmpy(ibeta,Sine);
-		iq = _IQmpy(ibeta,Cosine)- _IQmpy(ialfa,Sine) ;    //×ø±ê±ä»¯
+		iq = _IQmpy(ibeta,Cosine)- _IQmpy(ialfa,Sine) ;    //åæ ‡å˜åŒ–
 
 
 //======================================================================================================
-//IQµçÁ÷PIDµ÷½Ú¿ØÖÆ
+//IQç”µæµPIDè°ƒèŠ‚æ§åˆ¶
 //======================================================================================================  
 		IQ_Ref=IQ_Given;
 		IQ_Fdb=iq;
 		IQ_Error=IQ_Ref-IQ_Fdb;
 		IQ_Up=_IQmpy(IQ_Kp,IQ_Error);
-		IQ_Ui=IQ_Ui + _IQmpy(IQ_Ki,IQ_Up) + _IQmpy(IQ_Ki,IQ_SatError);  //_IQmpy(IQ_Ki,IQ_SatError)ÓÉÓÚ³¬³öÏŞÖµÒıÆğµÄ¿ØÖÆ»·ÔöÒæ
+		IQ_Ui=IQ_Ui + _IQmpy(IQ_Ki,IQ_Up) + _IQmpy(IQ_Ki,IQ_SatError);  //_IQmpy(IQ_Ki,IQ_SatError)ç”±äºè¶…å‡ºé™å€¼å¼•èµ·çš„æ§åˆ¶ç¯å¢ç›Š
 
 		IQ_OutPreSat=IQ_Up+IQ_Ui;
 
@@ -568,12 +569,12 @@ interrupt void EPWM_1_INT(void)
 		else 
 			IQ_Out=IQ_OutPreSat;  
 
-		IQ_SatError=IQ_Out-IQ_OutPreSat;  //³¬¹ıÏŞÖµÊ±µÄ±ä»¯Á¿
+		IQ_SatError=IQ_Out-IQ_OutPreSat;  //è¶…è¿‡é™å€¼æ—¶çš„å˜åŒ–é‡
 
 		Uq=IQ_Out;
 
 //======================================================================================================
-//IDµçÁ÷PIDµ÷½Ú¿ØÖÆ
+//IDç”µæµPIDè°ƒèŠ‚æ§åˆ¶
 //======================================================================================================  
 		ID_Ref=ID_Given;   //0
 		ID_Fdb=id;
@@ -590,12 +591,12 @@ interrupt void EPWM_1_INT(void)
 		ID_SatError=ID_Out-ID_OutPreSat;
 		Ud=ID_Out;
 //======================================================================================================
-//IPark±ä»»
+//IParkå˜æ¢
 //======================================================================================================
 		Ualfa = _IQmpy(Ud,Cosine) - _IQmpy(Uq,Sine);
 		Ubeta = _IQmpy(Uq,Cosine) + _IQmpy(Ud,Sine);
 //======================================================================================================
-//SVPWMÊµÏÖ
+//SVPWMå®ç°
 //======================================================================================================
         B0=Ubeta;
 		B1=_IQmpy(_IQ(0.8660254),Ualfa)- _IQmpy(_IQ(0.5),Ubeta);// 0.8660254 = sqrt(3)/2
@@ -623,8 +624,8 @@ interrupt void EPWM_1_INT(void)
        { t1=t_01;
        t2=t_02;
        }
-               //Æß¶ÎÊ½
-			Tb=_IQmpy(_IQ(0.5),(_IQ(1)-t1-t2));  //£¨t-t1-t2£©/2
+               //ä¸ƒæ®µå¼
+			Tb=_IQmpy(_IQ(0.5),(_IQ(1)-t1-t2));  //ï¼ˆt-t1-t2ï¼‰/2
 			Ta=Tb+t1;
 			Tc=Ta+t2;
 		}
@@ -713,23 +714,23 @@ interrupt void EPWM_1_INT(void)
        }
 			Tc=_IQmpy(_IQ(0.5),(_IQ(1)-t1-t2));
 			Ta=Tc+t1;
-			Tb=Ta+t2;                                 //¿Õ¼äÏòÁ¿×÷ÓÃÊ±¼ä·Ö±ğÊÇ2*t1¡¢2*t2
+			Tb=Ta+t2;                                 //ç©ºé—´å‘é‡ä½œç”¨æ—¶é—´åˆ†åˆ«æ˜¯2*t1ã€2*t2
 		}
 		MfuncD1=_IQmpy(_IQ(2),(_IQ(0.5)-Ta));
 		MfuncD2=_IQmpy(_IQ(2),(_IQ(0.5)-Tb));
 		MfuncD3=_IQmpy(_IQ(2),(_IQ(0.5)-Tc));
 //======================================================================================================
-//EVAÈ«±È½ÏÆ÷²ÎÊı¸³Öµ£¬ÓÃÓÚÇı¶¯µç»ú
+//EVAå…¨æ¯”è¾ƒå™¨å‚æ•°èµ‹å€¼ï¼Œç”¨äºé©±åŠ¨ç”µæœº
 //======================================================================================================
 	MPeriod = (int16)(T1Period * Modulation);              // Q0 = (Q0 * Q0)
 
-	Tmp = (int32)MPeriod * (int32)MfuncD1;                    // Q15 = Q0*Q15£¬¼ÆËãÈ«±È½ÏÆ÷CMPR1¸³Öµ
+	Tmp = (int32)MPeriod * (int32)MfuncD1;                    // Q15 = Q0*Q15ï¼Œè®¡ç®—å…¨æ¯”è¾ƒå™¨CMPR1èµ‹å€¼
 	 EPwm1Regs.CMPA.half.CMPA = (int16)(Tmp>>16) + (int16)(T1Period>>1); // Q0 = (Q15->Q0)/2 + (Q0/2)
 
-	Tmp = (int32)MPeriod * (int32)MfuncD2;                    // Q15 = Q0*Q15£¬¼ÆËãÈ«±È½ÏÆ÷CMPR2¸³Öµ
+	Tmp = (int32)MPeriod * (int32)MfuncD2;                    // Q15 = Q0*Q15ï¼Œè®¡ç®—å…¨æ¯”è¾ƒå™¨CMPR2èµ‹å€¼
 	 EPwm2Regs.CMPA.half.CMPA = (int16)(Tmp>>16) + (int16)(T1Period>>1); // Q0 = (Q15->Q0)/2 + (Q0/2)
 
-	Tmp = (int32)MPeriod * (int32)MfuncD3;                    // Q15 = Q0*Q15£¬¼ÆËãÈ«±È½ÏÆ÷CMPR3¸³Öµ
+	Tmp = (int32)MPeriod * (int32)MfuncD3;                    // Q15 = Q0*Q15ï¼Œè®¡ç®—å…¨æ¯”è¾ƒå™¨CMPR3èµ‹å€¼
 	 EPwm3Regs.CMPA.half.CMPA = (int16)(Tmp>>16) + (int16)(T1Period>>1); // Q0 = (Q15->Q0)/2 + (Q0/2)
 	}
    }
@@ -738,9 +739,9 @@ interrupt void EPWM_1_INT(void)
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //===============================================================================================
 //////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////×ª¾ØÄ£Ê½////////////////////////////////////////////////////
+////////////////////////////////////è½¬çŸ©æ¨¡å¼////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
-  if(torquestart==1&&speedstart==0) //torquestart=1±íÊ¾×ª¾ØÄ£Ê½£ºÁã×ªËÙ£¬×ª¾Ø¿Éµ÷
+  if(torquestart==1&&speedstart==0) //torquestart=1è¡¨ç¤ºè½¬çŸ©æ¨¡å¼ï¼šé›¶è½¬é€Ÿï¼Œè½¬çŸ©å¯è°ƒ
 {
 	if(LocationFlag!=LocationEnd)
 	{
@@ -763,42 +764,42 @@ interrupt void EPWM_1_INT(void)
 		{
 		case 5:
 		Position=PositionPhase60;// 1
-                LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                LocationFlag=LocationEnd;//å®šä½ç»“æŸ
 		EQep1Regs.QPOSCNT =BuChang*0+BuChang/2;    //BuChang=416
                 OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 	         break;
 
 		case 1:
 		Position=PositionPhase360;
-                LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                LocationFlag=LocationEnd;//å®šä½ç»“æŸ
 	        EQep1Regs.QPOSCNT =BuChang*5+BuChang/2;
                 OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 		 break;
 
 		case 3:
 		Position=PositionPhase300;
-                LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                LocationFlag=LocationEnd;//å®šä½ç»“æŸ
 		EQep1Regs.QPOSCNT =BuChang*4+BuChang/2;
                 OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 		 break;
 
 		case 2:
 		Position=PositionPhase240;
-                LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                LocationFlag=LocationEnd;//å®šä½ç»“æŸ
 		EQep1Regs.QPOSCNT =BuChang*3+BuChang/2;
                 OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 	         break;
 
 		case 6:
 		Position=PositionPhase180;
-                LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                LocationFlag=LocationEnd;//å®šä½ç»“æŸ
 		EQep1Regs.QPOSCNT =BuChang*2+BuChang/2;
                 OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 		 break;
 
 		case 4:
 		Position=PositionPhase120;
-                LocationFlag=LocationEnd;//¶¨Î»½áÊø
+                LocationFlag=LocationEnd;//å®šä½ç»“æŸ
                 EQep1Regs.QPOSCNT =BuChang*1+BuChang/2;
                 OldRawTheta=_IQ(EQep1Regs.QPOSCNT);
 		 break;
@@ -807,7 +808,7 @@ interrupt void EPWM_1_INT(void)
                     DC_ON_1;
                     Run_PMSM=2;
                     eva_close();
-                    Hall_Fault=1;//»ô¶ûĞÅºÅ´íÎóÆô¶¯Í£Ö¹
+                    Hall_Fault=1;//éœå°”ä¿¡å·é”™è¯¯å¯åŠ¨åœæ­¢
                     break;
 		}
 
@@ -815,26 +816,26 @@ interrupt void EPWM_1_INT(void)
 
 	}
 //=====================================================================================================
-//³õÊ¼Î»ÖÃ¶¨Î»½áÊø£¬¿ªÊ¼±Õ»·¿ØÖÆ
+//åˆå§‹ä½ç½®å®šä½ç»“æŸï¼Œå¼€å§‹é—­ç¯æ§åˆ¶
 //=====================================================================================================
 	else if(LocationFlag==LocationEnd)
 	{
 
 
 //======================================================================================================
-//QEP½Ç¶È¼ÆËã
+//QEPè§’åº¦è®¡ç®—
 //======================================================================================================
 
-// Ğı×ª·½ÏòÅĞ¶¨
-		DirectionQep = EQep1Regs.QEPSTS.bit.QDF;   //0ÄæÊ±Õë·½Ïò 1Ë³Ê±Õë·½Ïò
+// æ—‹è½¬æ–¹å‘åˆ¤å®š
+		DirectionQep = EQep1Regs.QEPSTS.bit.QDF;   //0é€†æ—¶é’ˆæ–¹å‘ 1é¡ºæ—¶é’ˆæ–¹å‘
 
         RawTheta = _IQ(EQep1Regs.QPOSCNT);
 
-		if(DirectionQep ==1) //µİÔö¼ÆÊı£¬´ú±íË³Ê±Õë£»
+		if(DirectionQep ==1) //é€’å¢è®¡æ•°ï¼Œä»£è¡¨é¡ºæ—¶é’ˆï¼›
 		{
 
 
-                    if((OldRawThetaPos>324403200) && (RawTheta<_IQ(900)))  //324403200=_IQ(9900) rawthetaÔÚ900µ½9900Ö®¼ä
+                    if((OldRawThetaPos>324403200) && (RawTheta<_IQ(900)))  //324403200=_IQ(9900) rawthetaåœ¨900åˆ°9900ä¹‹é—´
 			{
 				PosCount += TotalCnt;
 			}
@@ -844,7 +845,7 @@ interrupt void EPWM_1_INT(void)
 			OldRawThetaPos = RawTheta;
 
         }
-		    else if(DirectionQep ==0)//µİ¼õ¼ÆÊı£¬´ú±íÄæÊ±Õë
+		    else if(DirectionQep ==0)//é€’å‡è®¡æ•°ï¼Œä»£è¡¨é€†æ—¶é’ˆ
 		       {
 
                          if((RawTheta>294912000) && (OldRawThetaPos<_IQ(1000)))  //294912000=_IQ(9000)
@@ -854,15 +855,15 @@ interrupt void EPWM_1_INT(void)
 			    Place_now = _IQtoF(RawTheta)+PosCount;
 			    OldRawThetaPos = RawTheta;
 		       }
-		 MechTheta = _IQmpy(1179,RawTheta);  //1179=360/10000*x2^15  ÊÇÃ¿¸öÂö³å¼ä¸ô´ú±íµÄ½Ç¶ÈµÄq¸ñÊ½
-		                                     //RawThetaÊÇ½Ç¶È¶ÔÓ¦µÄÂö³åÊıµÄq15¸ñÊ½£¬
-		                                     //Á½¸öÏà³Ë  µÃµ½Êµ¼ÊµÄ×ª½Ç½Ç¶ÈµÄq15¸ñÊ½
-                if(MechTheta>_IQ(360))              //Èç¹û´óÓÚ360 ËµÃ÷¼ÓÁËÒ»È¦  ¾Í¼õÈ¥360
+		 MechTheta = _IQmpy(1179,RawTheta);  //1179=360/10000*x2^15  æ˜¯æ¯ä¸ªè„‰å†²é—´éš”ä»£è¡¨çš„è§’åº¦çš„qæ ¼å¼
+		                                     //RawThetaæ˜¯è§’åº¦å¯¹åº”çš„è„‰å†²æ•°çš„q15æ ¼å¼ï¼Œ
+		                                     //ä¸¤ä¸ªç›¸ä¹˜  å¾—åˆ°å®é™…çš„è½¬è§’è§’åº¦çš„q15æ ¼å¼
+                if(MechTheta>_IQ(360))              //å¦‚æœå¤§äº360 è¯´æ˜åŠ äº†ä¸€åœˆ  å°±å‡å»360
                 {MechTheta=MechTheta-_IQ(360);}
-                if(MechTheta<_IQ(-360))            //Ğ¡ÓÚ-360 ËµÃ÷·´Ïò×ª¶¯¶àÁËÒ»È¦  ¼Ó360¼´¿É
+                if(MechTheta<_IQ(-360))            //å°äº-360 è¯´æ˜åå‘è½¬åŠ¨å¤šäº†ä¸€åœˆ  åŠ 360å³å¯
                 {MechTheta=MechTheta+_IQ(360);}
-		ElecTheta = _IQmpy(PolePairs,MechTheta);   //µç½Ç¶È=¼«¶ÔÊı*»úĞµ½Ç¶È
-	        AnglePU=_IQdiv(ElecTheta,_IQ(360))+14876;   //½Ç¶ÈµÄ±êçÛÖµ=µç½Ç¶ÈµÄ±êçÛÖµ+½ÃÕıÖµ£¨0.45£©[³§¼Ò¸ø¶¨]
+		ElecTheta = _IQmpy(PolePairs,MechTheta);   //ç”µè§’åº¦=æå¯¹æ•°*æœºæ¢°è§’åº¦
+	        AnglePU=_IQdiv(ElecTheta,_IQ(360))+14876;   //è§’åº¦çš„æ ‡å¹ºå€¼=ç”µè§’åº¦çš„æ ‡å¹ºå€¼+çŸ«æ­£å€¼ï¼ˆ0.45ï¼‰[å‚å®¶ç»™å®š]
 	   	Sine = _IQsinPU(AnglePU);
 	   	Cosine = _IQcosPU(AnglePU);
 
@@ -870,16 +871,16 @@ interrupt void EPWM_1_INT(void)
 
 
 //======================================================================================================
-//QEPËÙ¶È¼ÆËã     SpeedLoopCount¼ÆÊı10´Î£¬¶ÔËÙ¶È»·½øĞĞÒ»´Î¶¨±ê£¬ÔËĞĞÒ»´ÎPI¿ØÖÆ      EpwmÊ±»ùÎª100us
+//QEPé€Ÿåº¦è®¡ç®—     SpeedLoopCountè®¡æ•°10æ¬¡ï¼Œå¯¹é€Ÿåº¦ç¯è¿›è¡Œä¸€æ¬¡å®šæ ‡ï¼Œè¿è¡Œä¸€æ¬¡PIæ§åˆ¶      Epwmæ—¶åŸºä¸º100us
 //======================================================================================================
 
 	  if (SpeedLoopCount>=SpeedLoopPrescaler)
 	  {
-// Ğı×ª·½ÏòÅĞ¶¨
-	     DirectionQep = EQep1Regs.QEPSTS.bit.QDF;	//0¡ª¡ªÄæÊ±Õë£¬1¡ª¡ªË³Ê±Õë
- 	     NewRawTheta =_IQ(EQep1Regs.QPOSCNT);        //µ±Ç°½Ç¶È¶ÔÓ¦µÄ¼ÆÊıÖµ
-// ¼ÆËã»úĞµ½Ç¶È
-		if(DirectionQep ==1) //µİÔö¼ÆÊı£¬
+// æ—‹è½¬æ–¹å‘åˆ¤å®š
+	     DirectionQep = EQep1Regs.QEPSTS.bit.QDF;	//0â€”â€”é€†æ—¶é’ˆï¼Œ1â€”â€”é¡ºæ—¶é’ˆ
+ 	     NewRawTheta =_IQ(EQep1Regs.QPOSCNT);        //å½“å‰è§’åº¦å¯¹åº”çš„è®¡æ•°å€¼
+// è®¡ç®—æœºæ¢°è§’åº¦
+		if(DirectionQep ==1) //é€’å¢è®¡æ•°ï¼Œ
 		{
 	          RawThetaTmp = OldRawTheta-NewRawTheta ;
 		  if(RawThetaTmp > _IQ(0))
@@ -887,7 +888,7 @@ interrupt void EPWM_1_INT(void)
 		   RawThetaTmp = RawThetaTmp - TotalPulse;
 		   }
 		 }
-		   else if(DirectionQep ==0) //µİ¼õ¼ÆÊı
+		   else if(DirectionQep ==0) //é€’å‡è®¡æ•°
 		     {
                        RawThetaTmp =OldRawTheta-NewRawTheta;
 			if(RawThetaTmp < _IQ(0))
@@ -895,21 +896,21 @@ interrupt void EPWM_1_INT(void)
 			  RawThetaTmp = RawThetaTmp + TotalPulse;
 		        }
 		      }
-			Speed = _IQmpy(RawThetaTmp,65);  	 //ËÙ¶È±êçÛÖµ
-//M·¨²âËÙ£¬T=1ms£¬RawThetaTmp*60/£¨2500*4£©*0.001 r/min =6*RawThetaTmp PU=6*RawThetaTmp*2^15/»ùËÙ3000  µÃµ½  65
+			Speed = _IQmpy(RawThetaTmp,65);  	 //é€Ÿåº¦æ ‡å¹ºå€¼
+//Mæ³•æµ‹é€Ÿï¼ŒT=1msï¼ŒRawThetaTmp*60/ï¼ˆ2500*4ï¼‰*0.001 r/min =6*RawThetaTmp PU=6*RawThetaTmp*2^15/åŸºé€Ÿ3000  å¾—åˆ°  65
 			OldRawTheta = NewRawTheta;
 		        SpeedLoopCount=1;
 			RawThetaTmp=0;
 
-//=================Î»ÖÃ»·¿ØÖÆ===================================
+//=================ä½ç½®ç¯æ§åˆ¶===================================
 
-//=================ËÙ¶È»·PI===================================
+//=================é€Ÿåº¦ç¯PI===================================
 		Speed_Ref=0;
 	        Speed_Fdb=Speed;
 		Speed_Error=Speed_Ref - Speed_Fdb;
 		Speed_Up=_IQmpy(Speed_Kp,Speed_Error);
 		Speed_Ui=Speed_Ui + _IQmpy(Speed_Ki,Speed_Up) + _IQmpy(Speed_Ki,Speed_SatError);
-		Speed_OutPreSat=Speed_Up+Speed_Ui;   //PI¿ØÖÆ
+		Speed_OutPreSat=Speed_Up+Speed_Ui;   //PIæ§åˆ¶
 		if(Speed_OutPreSat>Speed_OutMax)
 			Speed_Out=Speed_OutMax;
 		else if(Speed_OutPreSat<Speed_OutMin)
@@ -917,7 +918,7 @@ interrupt void EPWM_1_INT(void)
 		else
 			Speed_Out=Speed_OutPreSat;
 
-			Speed_SatError=Speed_Out-Speed_OutPreSat;  //³¬¹ıÏŞÖÆ²Å»áÓĞÕâÏî
+			Speed_SatError=Speed_Out-Speed_OutPreSat;  //è¶…è¿‡é™åˆ¶æ‰ä¼šæœ‰è¿™é¡¹
 
 			IQ_Given=Speed_Out;
            Speed_run=1;
@@ -925,20 +926,20 @@ interrupt void EPWM_1_INT(void)
 	else
       {
        SpeedLoopCount++;
-	  }                   //Ê±¼ä»·Îª1ms
+	  }                   //æ—¶é—´ç¯ä¸º1ms
 //=============================================================
 
         if(Speed_run==1)
        {
 	    ialfa=ia;
-		ibeta=_IQmpy(ia,_IQ(0.57735026918963))+_IQmpy(ib,_IQ(1.15470053837926));  //·ùÖµ²»±ä±ä»»µÄ¿ËÀ­¿Ë±ä»»
-		     //µÚÒ»¸öÏµÊıÊÇ¸ùÏÂ1/3.µÚ¶ş¸öÊÇ2/¸ùÏÂ3
+		ibeta=_IQmpy(ia,_IQ(0.57735026918963))+_IQmpy(ib,_IQ(1.15470053837926));  //å¹…å€¼ä¸å˜å˜æ¢çš„å…‹æ‹‰å…‹å˜æ¢
+		     //ç¬¬ä¸€ä¸ªç³»æ•°æ˜¯æ ¹ä¸‹1/3.ç¬¬äºŒä¸ªæ˜¯2/æ ¹ä¸‹3
 		id = _IQmpy(ialfa,Cosine) +_IQmpy(ibeta,Sine);
-		iq = _IQmpy(ibeta,Cosine)- _IQmpy(ialfa,Sine) ;    //×ø±ê±ä»¯
+		iq = _IQmpy(ibeta,Cosine)- _IQmpy(ialfa,Sine) ;    //åæ ‡å˜åŒ–
 
 
 //======================================================================================================
-//IQµçÁ÷PIDµ÷½Ú¿ØÖÆ
+//IQç”µæµPIDè°ƒèŠ‚æ§åˆ¶
 //======================================================================================================
 		IQ_Ref=IQ_Given;
 		IQ_Fdb=iq;
@@ -952,7 +953,7 @@ interrupt void EPWM_1_INT(void)
 
 
 		IQ_Up=_IQmpy(IQ_Kp,IQ_Error);
-		IQ_Ui=IQ_Ui + _IQmpy(IQ_Ki,IQ_Up) + _IQmpy(IQ_Ki,IQ_SatError);  //_IQmpy(IQ_Ki,IQ_SatError)ÓÉÓÚ³¬³öÏŞÖµÒıÆğµÄ¿ØÖÆ»·ÔöÒæ
+		IQ_Ui=IQ_Ui + _IQmpy(IQ_Ki,IQ_Up) + _IQmpy(IQ_Ki,IQ_SatError);  //_IQmpy(IQ_Ki,IQ_SatError)ç”±äºè¶…å‡ºé™å€¼å¼•èµ·çš„æ§åˆ¶ç¯å¢ç›Š
 
 		IQ_OutPreSat=IQ_Up+IQ_Ui;
 
@@ -963,12 +964,12 @@ interrupt void EPWM_1_INT(void)
 		else
 			IQ_Out=IQ_OutPreSat;
 
-		IQ_SatError=IQ_Out-IQ_OutPreSat;  //³¬¹ıÏŞÖµÊ±µÄ±ä»¯Á¿
+		IQ_SatError=IQ_Out-IQ_OutPreSat;  //è¶…è¿‡é™å€¼æ—¶çš„å˜åŒ–é‡
 
 		Uq=IQ_Out;
 
 //======================================================================================================
-//IDµçÁ÷PIDµ÷½Ú¿ØÖÆ
+//IDç”µæµPIDè°ƒèŠ‚æ§åˆ¶
 //======================================================================================================
 		ID_Ref=ID_Given;   //0
 		ID_Fdb=id;
@@ -992,13 +993,13 @@ interrupt void EPWM_1_INT(void)
 		Ud=ID_Out;
 
 //======================================================================================================
-//IPark±ä»»
+//IParkå˜æ¢
 //====================================================================================================== 
 		Ualfa = _IQmpy(Ud,Cosine) - _IQmpy(Uq,Sine);
 		Ubeta = _IQmpy(Uq,Cosine) + _IQmpy(Ud,Sine); 
     
 //======================================================================================================
-//SVPWMÊµÏÖ
+//SVPWMå®ç°
 //====================================================================================================== 
         B0=Ubeta;
 		B1=_IQmpy(_IQ(0.8660254),Ualfa)- _IQmpy(_IQ(0.5),Ubeta);// 0.8660254 = sqrt(3)/2 
@@ -1029,8 +1030,8 @@ interrupt void EPWM_1_INT(void)
        { t1=t_01;
        t2=t_02;
        }
-               //Æß¶ÎÊ½
-			Tb=_IQmpy(_IQ(0.5),(_IQ(1)-t1-t2));  //£¨t-t1-t2£©/2
+               //ä¸ƒæ®µå¼
+			Tb=_IQmpy(_IQ(0.5),(_IQ(1)-t1-t2));  //ï¼ˆt-t1-t2ï¼‰/2
 			Ta=Tb+t1;
 			Tc=Ta+t2;
 		}
@@ -1129,7 +1130,7 @@ interrupt void EPWM_1_INT(void)
 
 			Tc=_IQmpy(_IQ(0.5),(_IQ(1)-t1-t2));
 			Ta=Tc+t1;
-			Tb=Ta+t2;                                 //¿Õ¼äÏòÁ¿×÷ÓÃÊ±¼ä·Ö±ğÊÇ2*t1¡¢2*t2
+			Tb=Ta+t2;                                 //ç©ºé—´å‘é‡ä½œç”¨æ—¶é—´åˆ†åˆ«æ˜¯2*t1ã€2*t2
 		} 
 
 		MfuncD1=_IQmpy(_IQ(2),(_IQ(0.5)-Ta));
@@ -1137,17 +1138,17 @@ interrupt void EPWM_1_INT(void)
 		MfuncD3=_IQmpy(_IQ(2),(_IQ(0.5)-Tc)); 
 
 //======================================================================================================
-//EVAÈ«±È½ÏÆ÷²ÎÊı¸³Öµ£¬ÓÃÓÚÇı¶¯µç»ú
+//EVAå…¨æ¯”è¾ƒå™¨å‚æ•°èµ‹å€¼ï¼Œç”¨äºé©±åŠ¨ç”µæœº
 //====================================================================================================== 
 	MPeriod = (int16)(T1Period * Modulation);              // Q0 = (Q0 * Q0)
 
-	Tmp = (int32)MPeriod * (int32)MfuncD1;                    // Q15 = Q0*Q15£¬¼ÆËãÈ«±È½ÏÆ÷CMPR1¸³Öµ
+	Tmp = (int32)MPeriod * (int32)MfuncD1;                    // Q15 = Q0*Q15ï¼Œè®¡ç®—å…¨æ¯”è¾ƒå™¨CMPR1èµ‹å€¼
 	 EPwm1Regs.CMPA.half.CMPA = (int16)(Tmp>>16) + (int16)(T1Period>>1); // Q0 = (Q15->Q0)/2 + (Q0/2)
 
-	Tmp = (int32)MPeriod * (int32)MfuncD2;                    // Q15 = Q0*Q15£¬¼ÆËãÈ«±È½ÏÆ÷CMPR2¸³Öµ
+	Tmp = (int32)MPeriod * (int32)MfuncD2;                    // Q15 = Q0*Q15ï¼Œè®¡ç®—å…¨æ¯”è¾ƒå™¨CMPR2èµ‹å€¼
 	 EPwm2Regs.CMPA.half.CMPA = (int16)(Tmp>>16) + (int16)(T1Period>>1); // Q0 = (Q15->Q0)/2 + (Q0/2)
 
-	Tmp = (int32)MPeriod * (int32)MfuncD3;                    // Q15 = Q0*Q15£¬¼ÆËãÈ«±È½ÏÆ÷CMPR3¸³Öµ
+	Tmp = (int32)MPeriod * (int32)MfuncD3;                    // Q15 = Q0*Q15ï¼Œè®¡ç®—å…¨æ¯”è¾ƒå™¨CMPR3èµ‹å€¼
 	 EPwm3Regs.CMPA.half.CMPA = (int16)(Tmp>>16) + (int16)(T1Period>>1); // Q0 = (Q15->Q0)/2 + (Q0/2) 
 
          
@@ -1161,7 +1162,7 @@ interrupt void EPWM_1_INT(void)
 if(DC_ON_flag==1)
 {
 
-        if(U_dc_dis<10)//Ö´ĞĞÍ£»úÃüÁî
+        if(U_dc_dis<10)//æ‰§è¡Œåœæœºå‘½ä»¤
         {
         eva_close();
         Run_PMSM=2;
@@ -1172,7 +1173,7 @@ if(DC_ON_flag==1)
 }
 
 
-EPwm1Regs.ETCLR.bit.INT=1;//Çå³ıÖĞ¶Ï±êÖ¾Î»
+EPwm1Regs.ETCLR.bit.INT=1;//æ¸…é™¤ä¸­æ–­æ ‡å¿—ä½
 PieCtrlRegs.PIEACK.all = PIEACK_GROUP3;
 
 }
@@ -1201,7 +1202,7 @@ void Init_SiShu(void)
 interrupt void INT3_ISR(void)
 { 
    
-PieCtrlRegs.PIEACK.all = PIEACK_GROUP12;  //Íâ²¿ÖĞ¶ÏXINT3--7
+PieCtrlRegs.PIEACK.all = PIEACK_GROUP12;  //å¤–éƒ¨ä¸­æ–­XINT3--7
 }
 
 //===========================================================================
