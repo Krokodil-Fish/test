@@ -1,0 +1,118 @@
+
+**** Build of configuration Debug for project 28335-C-D-PMSM-FOC ****
+
+"C:\\ti\\ccsv5\\utils\\bin\\gmake" -k all 
+'Building file: ../Src/128x64.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/128x64.pp" --obj_directory="Src"  "../Src/128x64.c"
+'Finished building: ../Src/128x64.c'
+' '
+'Building file: ../Src/DSP2833x_ADC_cal.asm'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_ADC_cal.pp" --obj_directory="Src"  "../Src/DSP2833x_ADC_cal.asm"
+'Finished building: ../Src/DSP2833x_ADC_cal.asm'
+' '
+'Building file: ../Src/DSP2833x_Adc.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_Adc.pp" --obj_directory="Src"  "../Src/DSP2833x_Adc.c"
+'Finished building: ../Src/DSP2833x_Adc.c'
+' '
+'Building file: ../Src/DSP2833x_CodeStartBranch.asm'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_CodeStartBranch.pp" --obj_directory="Src"  "../Src/DSP2833x_CodeStartBranch.asm"
+'Finished building: ../Src/DSP2833x_CodeStartBranch.asm'
+' '
+'Building file: ../Src/DSP2833x_CpuTimers.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_CpuTimers.pp" --obj_directory="Src"  "../Src/DSP2833x_CpuTimers.c"
+'Finished building: ../Src/DSP2833x_CpuTimers.c'
+' '
+'Building file: ../Src/DSP2833x_DefaultIsr.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_DefaultIsr.pp" --obj_directory="Src"  "../Src/DSP2833x_DefaultIsr.c"
+'Finished building: ../Src/DSP2833x_DefaultIsr.c'
+' '
+'Building file: ../Src/DSP2833x_EPwm.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_EPwm.pp" --obj_directory="Src"  "../Src/DSP2833x_EPwm.c"
+'Finished building: ../Src/DSP2833x_EPwm.c'
+' '
+'Building file: ../Src/DSP2833x_GlobalVariableDefs.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_GlobalVariableDefs.pp" --obj_directory="Src"  "../Src/DSP2833x_GlobalVariableDefs.c"
+'Finished building: ../Src/DSP2833x_GlobalVariableDefs.c'
+' '
+'Building file: ../Src/DSP2833x_Gpio.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_Gpio.pp" --obj_directory="Src"  "../Src/DSP2833x_Gpio.c"
+'Finished building: ../Src/DSP2833x_Gpio.c'
+' '
+'Building file: ../Src/DSP2833x_MemCopy.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_MemCopy.pp" --obj_directory="Src"  "../Src/DSP2833x_MemCopy.c"
+'Finished building: ../Src/DSP2833x_MemCopy.c'
+' '
+'Building file: ../Src/DSP2833x_PieCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_PieCtrl.pp" --obj_directory="Src"  "../Src/DSP2833x_PieCtrl.c"
+'Finished building: ../Src/DSP2833x_PieCtrl.c'
+' '
+'Building file: ../Src/DSP2833x_PieVect.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_PieVect.pp" --obj_directory="Src"  "../Src/DSP2833x_PieVect.c"
+'Finished building: ../Src/DSP2833x_PieVect.c'
+' '
+'Building file: ../Src/DSP2833x_Sci.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_Sci.pp" --obj_directory="Src"  "../Src/DSP2833x_Sci.c"
+'Finished building: ../Src/DSP2833x_Sci.c'
+' '
+'Building file: ../Src/DSP2833x_Spi.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_Spi.pp" --obj_directory="Src"  "../Src/DSP2833x_Spi.c"
+'Finished building: ../Src/DSP2833x_Spi.c'
+' '
+'Building file: ../Src/DSP2833x_SysCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_SysCtrl.pp" --obj_directory="Src"  "../Src/DSP2833x_SysCtrl.c"
+'Finished building: ../Src/DSP2833x_SysCtrl.c'
+' '
+'Building file: ../Src/DSP2833x_usDelay.asm'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/DSP2833x_usDelay.pp" --obj_directory="Src"  "../Src/DSP2833x_usDelay.asm"
+'Finished building: ../Src/DSP2833x_usDelay.asm'
+' '
+'Building file: ../Src/Dis.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/Dis.pp" --obj_directory="Src"  "../Src/Dis.c"
+'Finished building: ../Src/Dis.c'
+' '
+'Building file: ../Src/Main.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/Main.pp" --obj_directory="Src"  "../Src/Main.c"
+'Finished building: ../Src/Main.c'
+' '
+'Building file: ../Src/SMO.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/SMO.pp" --obj_directory="Src"  "../Src/SMO.c"
+'Finished building: ../Src/SMO.c'
+' '
+'Building file: ../Src/TongXin.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --include_path="../../28335-C-D-PMSM-FOC/include" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="Src/TongXin.pp" --obj_directory="Src"  "../Src/TongXin.c"
+'Finished building: ../Src/TongXin.c'
+' '
+'Building target: 28335-C-D-PMSM-FOC.out'
+'Invoking: C2000 Linker'
+"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/bin/cl2000" -v28 -ml -mt --float_support=fpu32 -g --diag_warning=225 --display_error_number --diag_wrap=off -z -m"28335-C-D-PMSM-FOC.map" --stack_size=0x400 --warn_sections -i"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/lib" -i"C:/ti/ccsv5/tools/compiler/c2000_6.2.0/include" --reread_libs --display_error_number --diag_wrap=off --xml_link_info="28335-C-D-PMSM-FOC_linkInfo.xml" --rom_model -o "28335-C-D-PMSM-FOC.out"  "./Src/TongXin.obj" "./Src/SMO.obj" "./Src/Main.obj" "./Src/Dis.obj" "./Src/DSP2833x_usDelay.obj" "./Src/DSP2833x_SysCtrl.obj" "./Src/DSP2833x_Spi.obj" "./Src/DSP2833x_Sci.obj" "./Src/DSP2833x_PieVect.obj" "./Src/DSP2833x_PieCtrl.obj" "./Src/DSP2833x_MemCopy.obj" "./Src/DSP2833x_Gpio.obj" "./Src/DSP2833x_GlobalVariableDefs.obj" "./Src/DSP2833x_EPwm.obj" "./Src/DSP2833x_DefaultIsr.obj" "./Src/DSP2833x_CpuTimers.obj" "./Src/DSP2833x_CodeStartBranch.obj" "./Src/DSP2833x_Adc.obj" "./Src/DSP2833x_ADC_cal.obj" "./Src/128x64.obj" "../Lib/IQmath_fpu32.lib" "../Lib/rts2800_fpu32.lib" "../Cmd/DSP2833x_Headers_nonBIOS.cmd" "../Cmd/F28335.cmd" 
+<Linking>
+warning #16002-D: build attribute vendor section TI missing in "../Lib/IQmath_fpu32.lib<IQ15atan2PU.obj>": compatibility cannot be determined
+warning #16002-D: build attribute vendor section TI missing in "../Lib/IQmath_fpu32.lib<IQ15cosPU.obj>": compatibility cannot be determined
+warning #16002-D: build attribute vendor section TI missing in "../Lib/IQmath_fpu32.lib<IQ15div.obj>": compatibility cannot be determined
+warning #16002-D: build attribute vendor section TI missing in "../Lib/IQmath_fpu32.lib<IQ15sinPU.obj>": compatibility cannot be determined
+warning #16002-D: build attribute vendor section TI missing in "../Lib/IQmath_fpu32.lib<IQ15toF.obj>": compatibility cannot be determined
+warning #16002-D: build attribute vendor section TI missing in "../Lib/IQmath_fpu32.lib<IQmathTables.obj>": compatibility cannot be determined
+'Finished building target: 28335-C-D-PMSM-FOC.out'
+' '
+
+**** Build Finished ****
