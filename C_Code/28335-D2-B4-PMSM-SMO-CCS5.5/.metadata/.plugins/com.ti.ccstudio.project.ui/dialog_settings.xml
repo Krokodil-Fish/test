@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.ti.ccstudio.project.ui.internal.properties.DynamicPropertiesPageManager">
+	</section>
+	<section name="com.ti.ccstudio.project.ui.internal.wizards.project.ProjectSettingsPage">
+		<item value="C2000" key="CCS.DEVICE_FAMILY"/>
+		<item value="CCS.TEMPLATES" key="CCS.EXPANDED_AREA"/>
+		<item value="" key="CCS.CODEGEN_TOOL_VERSION"/>
+		<item value="" key="CCS.DEVICE_ENDIANNESS"/>
+		<item value="TMS320C28XX.TMS320F28335" key="CCS.DEVICE"/>
+		<item value="null" key="CCS.LINKER_COMMAND_FILE"/>
+		<item value="null" key="CCS.RUNTIME_SUPPORT_LIB"/>
+		<item value="executable" key="CCS.OUTPUT_TYPE"/>
+		<item value="" key="CCS.OUTPUT_FORMAT"/>
+		<item value="C:\ti\ccsv5\ccs_base\common\targetdb\connections\TIXDS100v2_Connection.xml" key="CCS.CONNECTION"/>
+	</section>
+</section>
