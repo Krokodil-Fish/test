@@ -1,0 +1,528 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+State Feedback:
+\begin_inset Newline newline
+\end_inset
+
+The CSU Method
+\end_layout
+
+\begin_layout Itemize
+Standard Approach
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+First-Order Differential Equation
+\begin_inset Formula 
+\[
+\dot{y}=-ay+bu
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Assign State Variable
+\begin_inset Formula 
+\[
+x_{1}=y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+State Equations
+\begin_inset Formula 
+\[
+\dot{x}_{1}=-ax_{1}+bu
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y=x_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+State Feedback
+\begin_inset Formula 
+\[
+u=-kx_{1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\dot{x}_{1}=-ax_{1}-bkx_{1}=(-a-bk)x_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Use 
+\shape smallcaps
+place
+\shape default
+ command in MATLAB to find k
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+CSU Approach
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Assign state for unknown disturbance
+\begin_inset Formula 
+\[
+x_{1}=y
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+x_{2}=-ay
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+State Equations
+\begin_inset Formula 
+\[
+\dot{x}_{1}=x_{2}+bu
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\dot{x}_{2}=(-a\dot{y})=h
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Add state to represent unknown
+\begin_inset Formula 
+\[
+\dot{x}=\left[\begin{array}{cc}
+0 & 1\\
+0 & 0
+\end{array}\right]x+\left[\begin{array}{c}
+b\\
+0
+\end{array}\right]u+\left[\begin{array}{c}
+0\\
+h
+\end{array}\right]=Ax+Bu+w
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y=\left[\begin{array}{cc}
+1 & 0\end{array}\right]x=Cx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Ideal plant (perfect integrator)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+let f represent total unknown and disturbance
+\begin_inset Formula 
+\[
+u=\frac{-\hat{f}+u_{0}}{b}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\dot{y}=f+b\frac{-\hat{f}+u_{0}}{b}=\left(f-\hat{f}\right)+u_{0}=u_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+State Approximations
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+as 
+\begin_inset Formula $z\rightarrow x$
+\end_inset
+
+, 
+\begin_inset Formula $z_{1}\rightarrow y$
+\end_inset
+
+, 
+\begin_inset Formula $z_{2}\rightarrow f$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\dot{z}=Az+Bu+L\left(y-\hat{y}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{y}=Cz
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+let 
+\begin_inset Formula $L=\left[\begin{array}{c}
+\beta_{1}\\
+\beta_{2}
+\end{array}\right]$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+z_{1}\\
+z_{2}
+\end{array}\right]=\left[\begin{array}{cc}
+0 & 1\\
+0 & 0
+\end{array}\right]\left[\begin{array}{c}
+z_{1}\\
+z_{2}
+\end{array}\right]+\left[\begin{array}{c}
+b\\
+0
+\end{array}\right]u+\left[\begin{array}{c}
+\beta_{1}\\
+\beta_{2}
+\end{array}\right](y-\hat{y})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Since 
+\begin_inset Formula $\hat{y}=Cz$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+L\hat{y}=\left[\begin{array}{c}
+\beta_{1}\\
+\beta_{2}
+\end{array}\right]\left[\begin{array}{cc}
+1 & 0\end{array}\right]\left[\begin{array}{c}
+z_{1}\\
+z_{2}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+\beta_{1}\\
+\beta_{2}
+\end{array}\right](y-\hat{y})=\left[\begin{array}{c}
+\beta_{1}\\
+\beta_{2}
+\end{array}\right]y-\left[\begin{array}{cc}
+\beta_{1} & 0\\
+\beta_{2} & 0
+\end{array}\right]\left[\begin{array}{c}
+z_{1}\\
+z_{2}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+z_{1}\\
+z_{2}
+\end{array}\right]=\left[\begin{array}{cc}
+-\beta_{1} & 1\\
+-\beta_{2} & 0
+\end{array}\right]\left[\begin{array}{c}
+z_{1}\\
+z_{2}
+\end{array}\right]+\left[\begin{array}{cc}
+b & \beta_{1}\\
+0 & \beta_{2}
+\end{array}\right]\left[\begin{array}{c}
+u\\
+y
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Controller Bandwidth
+\begin_inset Formula 
+\[
+\dot{y}=u_{0}=k_{p}(r-y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Closed loop transfer function (low-pass filter corner frequency at 
+\begin_inset Formula $k_{p}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Refer to 
+\begin_inset Formula $k_{p}$
+\end_inset
+
+ as 
+\begin_inset Formula $\omega_{c}$
+\end_inset
+
+ and tune by frequency
+\begin_inset Formula 
+\[
+\frac{k_{p}/s}{1+k_{p}/s}=\frac{k_{p}}{s+k_{p}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Observer Bandwidth
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Choose 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{2}$
+\end_inset
+
+ so that A matrix contains correct eigenvalues
+\begin_inset Formula 
+\[
+\lambda(s)=\left|sI-A\right|=\left|\left[\begin{array}{cc}
+s & 0\\
+0 & s
+\end{array}\right]-\left[\begin{array}{cc}
+-\beta_{1} & 1\\
+-\beta_{2} & 0
+\end{array}\right]\right|=\left|\begin{array}{cc}
+s+\beta_{1} & -1\\
+\beta_{2} & s
+\end{array}\right|
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\[
+\lambda(s)=s\left(s+\beta_{1}\right)+\beta_{2}=s^{2}+\beta_{1}s+\beta_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Set both eigenvalues to 
+\begin_inset Formula $\omega_{o}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\omega_{o}=\lambda_{1}=\lambda_{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lambda(s)=\left(s+\omega_{o}\right)^{2}=s^{2}+2\omega_{o}+\omega_{o}^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\beta_{1}=2\omega_{o}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\beta_{2}=\omega_{o}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_body
+\end_document
