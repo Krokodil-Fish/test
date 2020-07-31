@@ -1,0 +1,11 @@
+$begin 'CacheDataVersion'
+	DataVersion=5
+$end 'CacheDataVersion'
+$begin 'VariableValues'
+	fractions='4'
+	delta='8.21856973442243deg'
+	conds='257'
+	R1='11.7293608768038ohm'
+	Le1='0.00851271873204945H'
+	thet='15deg'
+$end 'VariableValues'

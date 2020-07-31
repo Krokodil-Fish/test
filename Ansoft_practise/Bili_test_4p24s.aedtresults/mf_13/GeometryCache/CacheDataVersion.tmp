@@ -1,0 +1,9 @@
+$begin 'CacheDataVersion'
+	DataVersion=5
+$end 'CacheDataVersion'
+$begin 'VariableValues'
+	fractions='1'
+	thet='15deg'
+	N='257'
+	I='0.1*sqrt(2) A'
+$end 'VariableValues'

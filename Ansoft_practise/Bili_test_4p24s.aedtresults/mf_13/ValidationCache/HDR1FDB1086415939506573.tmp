@@ -1,0 +1,7 @@
+$begin 'ValidationCache'
+	$begin 'OneValidationResult'
+		Variation='fractions=\'1\' I=\'0.14142135623731A\' N=\'257\' thet=\'15deg\''
+		Status=true
+		FileName='VI1FDB1086415939506574.tmp'
+	$end 'OneValidationResult'
+$end 'ValidationCache'

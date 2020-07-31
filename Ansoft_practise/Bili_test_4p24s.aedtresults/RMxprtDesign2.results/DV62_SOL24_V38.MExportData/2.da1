@@ -1,0 +1,347 @@
+MachineType 4 
+UnitSystem 1
+
+B_MACHINE
+ FrictionLoss 12
+ WindLoss 0
+ ReferenceSpeed 1500
+ NumberOfPoles 4
+ RotorPosition 1
+ ControlType 3
+ CircuitType 1
+ B_CIRCUIT
+  TriggerPulseWidth 120
+  TransistorDrop 0
+  DiodeDrop 0
+  ModulationIndex 0
+  CarrierFrequencyTimes 0
+ E_CIRCUIT
+ B_STATOR
+  OuterDiameter 120
+  InnerDiameter 75
+  Length 65
+  StackingFactor 0.95
+  SteelType DW310_35
+  NumberOfSlots 24
+  SlotType 1
+  LaminationSectors 0
+  PressBoardThickness 0
+  SkewWidth 0
+  B_Slot
+   Hs0 0.5
+   Hs1 0
+   Hs2 0
+   Bs0 2.5
+   Bs1 0
+   Bs2 0
+   Rs 0
+   AutoDesign 1
+   ParallelTooth 0
+   ToothWidth 0
+  E_Slot
+  B_Winding
+   WindingType 1
+   WindingLayers 1
+   ParallelBranches 2
+   ConductorsPerSlot 0
+   CoilPitch 0
+   InputHalfTurnLength 0
+   HalfTurnLength 0
+   EndAdjustment 0
+   NumberOfStrands 2
+   WireWrap 0
+   WireDiameter 0
+   Gauge AUTO
+   WireWidth 0
+   WireThickness 0
+   BaseInnerRadius 0
+   TipInnerDiameter 0
+   EndClearance 0
+   CoilWrap 0
+   SlotLiner 0.3
+   WedgeThickness 0
+   LayerInsulation 0
+   BottomInsulation 0
+   LimitedFillFactor 0.75
+  E_Winding
+ E_STATOR
+ B_ROTOR
+  OuterDiameter 74
+  InnerDiameter 26
+  Length 65
+  SteelType DW310_35
+  PoleType 1
+  StackingFactor 0.95
+  B_POLE
+   Embrace 0.7
+   Offset 0
+   ShaftDiameter 0
+   Bridge 0
+   Rib 0
+   MagnetThickness 4.5
+   MagnetWidth 0
+   MagnetType XG196/96
+  E_POLE
+ E_ROTOR
+ B_SHAFT
+  MagneticShaft 0
+ E_SHAFT
+E_MACHINE
+
+B_SOLVESETUP
+ RatedOutputPower 0.55
+ RatedVoltage 220
+ RatedSpeed 1500
+ OperatingTemperature 75
+ OperationType 0
+ LoadType 1
+ RatedPowerFactor 0.75
+ Domain 0
+E_SOLVESETUP
+
+B_WIREDATA
+UnitSystem 1
+B_ROUND 101
+4/0 11.684 0
+3/0 10.404 0
+2/0 9.266 0
+1/0 8.252 0
+1/0.5 7.788 0
+1 7.348 0
+1.5 6.934 0
+2 6.543 0
+2.5 6.175 0
+3 5.827 0
+3.5 5.499 0
+4 5.189 0
+4.5 4.897 0
+5 4.62 0
+5.5 4.361 0
+6 4.115 0
+6.5 3.884 0
+7 3.665 0
+7.5 3.459 0
+8 3.264 0
+8.5 3.081 0
+9 2.906 0
+9.5 2.743 0
+10 2.588 0
+10.5 2.443 0
+11 2.304 0
+11.5 2.174 0
+12 2.052 0
+12.5 1.938 0
+13 1.829 0
+13.5 1.725 0
+14 1.628 0
+14.5 1.537 0
+15 1.45 0
+15.5 1.369 0
+16 1.29 0
+16.5 1.219 0
+17 1.151 0
+17.5 1.085 0
+18 1.024 0
+18.5 0.965 0
+19 0.912 0
+19.5 0.861 0
+20 0.813 0
+20.5 0.767 0
+21 0.724 0
+21.5 0.683 0
+22 0.643 0
+22.5 0.607 0
+23 0.574 0
+23.5 0.541 0
+24 0.511 0
+24.5 0.483 0
+25 0.455 0
+25.5 0.429 0
+26 0.404 0
+26.5 0.381 0
+27 0.361 0
+27.5 0.34 0
+28 0.32 0
+28.5 0.302 0
+29 0.287 0
+29.5 0.269 0
+30 0.254 0
+30.5 0.239 0
+31 0.226 0
+31.5 0.213 0
+32 0.203 0
+32.5 0.19 0
+33 0.18 0
+33.5 0.17 0
+34 0.16 0
+34.5 0.15 0
+35 0.142 0
+35.5 0.135 0
+36 0.127 0
+36.5 0.119 0
+37 0.114 0
+37.5 0.107 0
+38 0.102 0
+38.5 0.094 0
+39 0.089 0
+39.5 0.084 0
+40 0.079 0
+40.5 0.076 0
+41 0.071 0
+41.5 0.066 0
+42 0.064 0
+42.5 0.061 0
+43 0.056 0
+43.5 0.053 0
+44 0.051 0
+44.5 0.048 0
+45 0.0447 0
+46 0.0399 0
+47 0.0356 0
+48 0.0315 0
+49 0.0282 0
+50 0.0251 0
+51 0.0224 0
+52 0.0198 0
+E_ROUND
+B_RECT
+Max 13
+Min 1.1
+SkipOne 1
+B_ASIZE 17
+1.02 0.5
+1.15 0.5
+1.29 0.5
+1.45 0.5
+1.63 0.5
+1.83 0.5
+2.05 0.5
+2.3 0.5
+2.59 0.67
+2.91 0.67
+3.26 0.8
+3.66 0.8
+4.12 1
+4.62 1
+5.19 1
+5.83 1
+6.54 1
+E_ASIZE
+B_BSIZE 33
+2.05
+2.18
+2.3
+2.44
+2.59
+2.74
+2.91
+3.08
+3.26
+3.46
+3.66
+3.88
+4.12
+4.36
+4.62
+4.9
+5.19
+5.5
+5.83
+6.18
+6.54
+6.93
+7.35
+7.79
+8.25
+8.74
+9.27
+9.82
+10.4
+11.03
+11.68
+12.38
+13.12
+E_BSIZE
+E_RECT
+E_WIREDATA
+
+
+B_DW310_35
+ Kh 179
+ Kc 0.403
+ Ke 0
+ Conductivity 0
+ MassDensity 7650
+ IntrinsicB 0
+ B_HBCurve 36
+  0 0
+  58 0.4
+  60 0.45
+  62 0.5
+  64 0.55
+  68 0.6
+  72 0.65
+  75 0.7
+  78 0.75
+  84 0.8
+  92 0.85
+  100 0.9
+  107 0.95
+  116 1
+  127 1.05
+  143 1.1
+  167 1.15
+  197 1.2
+  239 1.25
+  303 1.3
+  422 1.35
+  597 1.4
+  955 1.45
+  1592 1.5
+  2389 1.55
+  3462 1.6
+  5096 1.65
+  6529 1.7
+  8262 1.75
+  10988 1.8
+  14730 1.85
+  18313 1.9
+  23090 1.95
+  30892 2
+  47771 2.05
+  74045 2.1
+ E_HBCurve 36
+ ThermalConductivity 0
+ SpecificHeat 0
+E_DW310_35
+
+B_XG196/96
+ Conductivity 0
+ MassDensity 0
+ IntrinsicB 0
+ B_HBCurve 20
+  -690000 0
+  -663114 0.0487979
+  -635338 0.0975957
+  -606628 0.146394
+  -576936 0.195191
+  -546211 0.243989
+  -514397 0.292787
+  -481437 0.341585
+  -447266 0.390383
+  -411817 0.439181
+  -375016 0.487979
+  -333348 0.541105
+  -291679 0.593468
+  -250011 0.64583
+  -208342 0.698192
+  -166674 0.750554
+  -125005 0.802916
+  -83337 0.855278
+  -41668.5 0.907641
+  0 0.96
+ E_HBCurve 20
+ ThermalConductivity 0
+ SpecificHeat 0
+E_XG196/96
+

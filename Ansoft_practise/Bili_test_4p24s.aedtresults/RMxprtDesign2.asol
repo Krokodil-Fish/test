@@ -1,0 +1,274 @@
+$begin '$base_index$'
+  $begin 'properties'
+    all_levels=000000000000
+    time(year=000000002020, month=000000000007, day=000000000005, hour=000000000022, min=000000000013, sec=000000000043)
+    version=000000000000
+  $end 'properties'
+  $begin '$base_index$'
+    $index$(pos=000000010271, lin=000000000249, lvl=000000000000)
+  $end '$base_index$'
+$end '$base_index$'
+$begin 'SolutionBlock2'
+	SolutionName='Performance'
+	SolutionID=24
+	V=38
+	$begin 'States'
+		F(VID=52, Ver=38)
+		F(VID=53, Ver=38)
+		F(VID=54, Ver=38)
+		F(VID=55, Ver=38)
+		F(VID=56, Ver=38)
+		F(VID=57, Ver=38)
+		F(VID=58, Ver=38)
+		F(VID=59, Ver=38)
+		F(VID=60, Ver=38)
+		F(VID=61, Ver=38)
+		F(VID=62, Ver=38)
+		F(VID=87, Ver=38)
+		F(VID=88, Ver=38)
+		F(VID=89, Ver=38)
+		F(VID=90, Ver=38)
+		F(VID=91, Ver=38)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies()
+		SolutionType=1
+		CenterFreq=0
+	$end 'Definition'
+	$begin 'SolutionDataFiles'
+		MSolutionData(VID=52, Ver=38, Dir='DV52_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=53, Ver=38, Dir='DV53_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=54, Ver=38, Dir='DV54_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=55, Ver=38, Dir='DV55_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=56, Ver=38, Dir='DV56_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=57, Ver=38, Dir='DV57_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=58, Ver=38, Dir='DV58_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=59, Ver=38, Dir='DV59_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=60, Ver=38, Dir='DV60_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=61, Ver=38, Dir='DV61_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=62, Ver=38, Dir='DV62_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=87, Ver=38, Dir='DV87_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=88, Ver=38, Dir='DV88_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=89, Ver=38, Dir='DV89_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=90, Ver=38, Dir='DV90_SOL24_V38.MSolutionData/')
+		MSolutionData(VID=91, Ver=38, Dir='DV91_SOL24_V38.MSolutionData/')
+	$end 'SolutionDataFiles'
+	$begin 'SolverDataFiles'
+		MSolverData(VID=52, Ver=38, File='DV52_SOL24_V38.MSolverData')
+		MSolverData(VID=53, Ver=38, File='DV53_SOL24_V38.MSolverData')
+		MSolverData(VID=54, Ver=38, File='DV54_SOL24_V38.MSolverData')
+		MSolverData(VID=55, Ver=38, File='DV55_SOL24_V38.MSolverData')
+		MSolverData(VID=56, Ver=38, File='DV56_SOL24_V38.MSolverData')
+		MSolverData(VID=57, Ver=38, File='DV57_SOL24_V38.MSolverData')
+		MSolverData(VID=58, Ver=38, File='DV58_SOL24_V38.MSolverData')
+		MSolverData(VID=59, Ver=38, File='DV59_SOL24_V38.MSolverData')
+		MSolverData(VID=60, Ver=38, File='DV60_SOL24_V38.MSolverData')
+		MSolverData(VID=61, Ver=38, File='DV61_SOL24_V38.MSolverData')
+		MSolverData(VID=62, Ver=38, File='DV62_SOL24_V38.MSolverData')
+		MSolverData(VID=87, Ver=38, File='DV87_SOL24_V38.MSolverData')
+		MSolverData(VID=88, Ver=38, File='DV88_SOL24_V38.MSolverData')
+		MSolverData(VID=89, Ver=38, File='DV89_SOL24_V38.MSolverData')
+		MSolverData(VID=90, Ver=38, File='DV90_SOL24_V38.MSolverData')
+		MSolverData(VID=91, Ver=38, File='DV91_SOL24_V38.MSolverData')
+	$end 'SolverDataFiles'
+	$begin 'ExportDataFiles'
+		MExportData(VID=52, Ver=38, Dir='DV52_SOL24_V38.MExportData/')
+		MExportData(VID=53, Ver=38, Dir='DV53_SOL24_V38.MExportData/')
+		MExportData(VID=54, Ver=38, Dir='DV54_SOL24_V38.MExportData/')
+		MExportData(VID=55, Ver=38, Dir='DV55_SOL24_V38.MExportData/')
+		MExportData(VID=56, Ver=38, Dir='DV56_SOL24_V38.MExportData/')
+		MExportData(VID=57, Ver=38, Dir='DV57_SOL24_V38.MExportData/')
+		MExportData(VID=58, Ver=38, Dir='DV58_SOL24_V38.MExportData/')
+		MExportData(VID=59, Ver=38, Dir='DV59_SOL24_V38.MExportData/')
+		MExportData(VID=60, Ver=38, Dir='DV60_SOL24_V38.MExportData/')
+		MExportData(VID=61, Ver=38, Dir='DV61_SOL24_V38.MExportData/')
+		MExportData(VID=62, Ver=38, Dir='DV62_SOL24_V38.MExportData/')
+		MExportData(VID=87, Ver=38, Dir='DV87_SOL24_V38.MExportData/')
+		MExportData(VID=88, Ver=38, Dir='DV88_SOL24_V38.MExportData/')
+		MExportData(VID=89, Ver=38, Dir='DV89_SOL24_V38.MExportData/')
+		MExportData(VID=90, Ver=38, Dir='DV90_SOL24_V38.MExportData/')
+		MExportData(VID=91, Ver=38, Dir='DV91_SOL24_V38.MExportData/')
+	$end 'ExportDataFiles'
+	$begin 'CurvesDataFiles'
+		MCurvesData(VID=52, Ver=38, Dir='DV52_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=53, Ver=38, Dir='DV53_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=54, Ver=38, Dir='DV54_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=55, Ver=38, Dir='DV55_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=56, Ver=38, Dir='DV56_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=57, Ver=38, Dir='DV57_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=58, Ver=38, Dir='DV58_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=59, Ver=38, Dir='DV59_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=60, Ver=38, Dir='DV60_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=61, Ver=38, Dir='DV61_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=62, Ver=38, Dir='DV62_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=87, Ver=38, Dir='DV87_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=88, Ver=38, Dir='DV88_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=89, Ver=38, Dir='DV89_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=90, Ver=38, Dir='DV90_SOL24_V38.MCurvesData/')
+		MCurvesData(VID=91, Ver=38, Dir='DV91_SOL24_V38.MCurvesData/')
+	$end 'CurvesDataFiles'
+$end 'SolutionBlock2'
+$begin 'BlockMapName'
+	FileHeader='SolutionBlock1'
+	'SolutionKey(SimSetup=23, Instance=\'SetupDefinition\', Solution=-1, VersionID=38)'='SolutionBlock3'
+	'SolutionKey(SimSetup=23, Instance=\'SolutionDefinition\', Solution=24, VersionID=38)'='SolutionBlock2'
+	'SolutionKey(SimSetup=72, Instance=\'SetupDefinition\', Solution=-1, VersionID=0)'='SolutionBlock5'
+	'SolutionKey(SimSetup=72, Instance=\'SolutionDefinition\', Solution=73, VersionID=0)'='SolutionBlock4'
+$end 'BlockMapName'
+$begin 'SolutionBlock3'
+	SimSetupID=23
+	SimSetupName='Setup1'
+	VersionID=38
+	SolveSetupID=2
+$end 'SolutionBlock3'
+$begin 'SolutionBlock4'
+	SolutionName='Performance'
+	SolutionID=73
+	V=0
+	$begin 'States'
+		F(VID=87, Ver=0)
+		F(VID=88, Ver=0)
+		F(VID=89, Ver=0)
+		F(VID=90, Ver=0)
+		F(VID=91, Ver=0)
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies()
+		SolutionType=1
+		CenterFreq=0
+	$end 'Definition'
+	$begin 'SolutionDataFiles'
+		MSolutionData(VID=87, Ver=0, Dir='DV87_SOL73_V0.MSolutionData/')
+		MSolutionData(VID=88, Ver=0, Dir='DV88_SOL73_V0.MSolutionData/')
+		MSolutionData(VID=89, Ver=0, Dir='DV89_SOL73_V0.MSolutionData/')
+		MSolutionData(VID=90, Ver=0, Dir='DV90_SOL73_V0.MSolutionData/')
+		MSolutionData(VID=91, Ver=0, Dir='DV91_SOL73_V0.MSolutionData/')
+	$end 'SolutionDataFiles'
+	$begin 'SolverDataFiles'
+		MSolverData(VID=87, Ver=0, File='DV87_SOL73_V0.MSolverData')
+		MSolverData(VID=88, Ver=0, File='DV88_SOL73_V0.MSolverData')
+		MSolverData(VID=89, Ver=0, File='DV89_SOL73_V0.MSolverData')
+		MSolverData(VID=90, Ver=0, File='DV90_SOL73_V0.MSolverData')
+		MSolverData(VID=91, Ver=0, File='DV91_SOL73_V0.MSolverData')
+	$end 'SolverDataFiles'
+	$begin 'ExportDataFiles'
+		MExportData(VID=87, Ver=0, Dir='DV87_SOL73_V0.MExportData/')
+		MExportData(VID=88, Ver=0, Dir='DV88_SOL73_V0.MExportData/')
+		MExportData(VID=89, Ver=0, Dir='DV89_SOL73_V0.MExportData/')
+		MExportData(VID=90, Ver=0, Dir='DV90_SOL73_V0.MExportData/')
+		MExportData(VID=91, Ver=0, Dir='DV91_SOL73_V0.MExportData/')
+	$end 'ExportDataFiles'
+	$begin 'CurvesDataFiles'
+		MCurvesData(VID=87, Ver=0, Dir='DV87_SOL73_V0.MCurvesData/')
+		MCurvesData(VID=88, Ver=0, Dir='DV88_SOL73_V0.MCurvesData/')
+		MCurvesData(VID=89, Ver=0, Dir='DV89_SOL73_V0.MCurvesData/')
+		MCurvesData(VID=90, Ver=0, Dir='DV90_SOL73_V0.MCurvesData/')
+		MCurvesData(VID=91, Ver=0, Dir='DV91_SOL73_V0.MCurvesData/')
+	$end 'CurvesDataFiles'
+$end 'SolutionBlock4'
+$begin 'SolutionBlock5'
+	SimSetupID=72
+	SimSetupName='Setup2'
+	VersionID=0
+	SolveSetupID=3
+$end 'SolutionBlock5'
+$begin 'SolutionBlock1'
+	ProductName=''
+	CircuitName='RMxprtDesign2'
+	VersionID=38
+	PostProcess=false
+	LossLess=true
+	NextUniqueID=211
+	MoveBackwards=false
+	$begin 'VariationIDs'
+		Map(V='thick=\'2.5mm\'', ID=52)
+		Map(V='thick=\'2.7mm\'', ID=53)
+		Map(V='thick=\'2.9mm\'', ID=54)
+		Map(V='thick=\'3.1mm\'', ID=55)
+		Map(V='thick=\'3.3mm\'', ID=56)
+		Map(V='thick=\'3.5mm\'', ID=57)
+		Map(V='thick=\'3.5mm\' voltage=\'110V\'', ID=87)
+		Map(V='thick=\'3.5mm\' voltage=\'165V\'', ID=88)
+		Map(V='thick=\'3.5mm\' voltage=\'220V\'', ID=89)
+		Map(V='thick=\'3.5mm\' voltage=\'275V\'', ID=90)
+		Map(V='thick=\'3.5mm\' voltage=\'330V\'', ID=91)
+		Map(V='thick=\'3.7mm\'', ID=58)
+		Map(V='thick=\'3.9mm\'', ID=59)
+		Map(V='thick=\'4.1mm\'', ID=60)
+		Map(V='thick=\'4.3mm\'', ID=61)
+		Map(V='thick=\'4.5mm\'', ID=62)
+	$end 'VariationIDs'
+	$begin 'LinkedDataList'
+	$end 'LinkedDataList'
+$end 'SolutionBlock1'
+$begin 'ResponseSurfaceCache'
+	ResponseSurfaceCache()
+$end 'ResponseSurfaceCache'
+$begin 'OptimetricsResult2'
+	V=2
+	svi('thick', '3.5mm')
+	vi('voltage', '220V', '220V', '220V')
+	gver(0)
+	ev(24, 38)
+	ev(73, 0)
+	var(3.500000000000000e-03, 1.100000000000000e+02)
+	gvs(1.100000000000000e+02)
+	var(3.500000000000000e-03, 1.650000000000000e+02)
+	gvs(1.650000000000000e+02)
+	var(3.500000000000000e-03, 2.200000000000000e+02)
+	gvs(2.200000000000000e+02)
+	var(3.500000000000000e-03, 2.750000000000000e+02)
+	gvs(2.750000000000000e+02)
+	var(3.500000000000000e-03, 3.300000000000000e+02)
+	gvs(3.300000000000000e+02)
+$end 'OptimetricsResult2'
+$begin 'OptimetricsResults'
+	'0:0'='OptimetricsResult1'
+	'1:0'='OptimetricsResult2'
+$end 'OptimetricsResults'
+$begin 'OptimetricsResult1'
+	V=2
+	vi('thick', '3.5mm', '3.5mm', '3.5mm')
+	gver(0)
+	ev(24, 38)
+	var(2.500000000000000e-03)
+	gvs(2.500000000000000e-03)
+	var(2.700000000000000e-03)
+	gvs(2.700000000000000e-03)
+	var(2.900000000000000e-03)
+	gvs(2.900000000000000e-03)
+	var(3.100000000000000e-03)
+	gvs(3.100000000000000e-03)
+	var(3.300000000000000e-03)
+	gvs(3.300000000000000e-03)
+	var(3.500000000000000e-03)
+	gvs(3.500000000000000e-03)
+	var(3.700000000000000e-03)
+	gvs(3.700000000000000e-03)
+	var(3.900000000000000e-03)
+	gvs(3.900000000000000e-03)
+	var(4.099999999999999e-03)
+	gvs(4.099999999999999e-03)
+	var(4.300000000000000e-03)
+	gvs(4.300000000000000e-03)
+	var(4.500000000000001e-03)
+	gvs(4.500000000000001e-03)
+$end 'OptimetricsResult1'
+$begin '$index$'
+	$begin '$index$'
+		OptimetricsResult1(pos=9535, lin=221, lvl=0)
+		SolutionBlock2(pos=370, lin=1, lvl=0)
+		BlockMapName(pos=5363, lin=102, lvl=0)
+		SolutionBlock3(pos=5846, lin=109, lvl=0)
+		SolutionBlock4(pos=5960, lin=115, lvl=0)
+		SolutionBlock5(pos=7783, lin=161, lvl=0)
+		SolutionBlock1(pos=7896, lin=167, lvl=0)
+		ResponseSurfaceCache(pos=8795, lin=196, lvl=0)
+		OptimetricsResult2(pos=8877, lin=199, lvl=0)
+		OptimetricsResults(pos=9425, lin=217, lvl=0)
+		$base_index$(pos=0, lin=1, lvl=0)
+		$index$(pos=10271, lin=249, lvl=0)
+	$end '$index$'
+$end '$index$'
