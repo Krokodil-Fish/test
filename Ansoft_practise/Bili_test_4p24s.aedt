@@ -61,7 +61,7 @@ $begin 'AnsoftProject'
 	$end 'geometry3deditor'
 	ReadVersion=7
 	$begin 'DesignMgrEnvironment'
-		CompInstCounter=6
+		CompInstCounter=7
 		GPortCounter=0
 		NetCounter=0
 		Alias('Ieee;Simplorer Elements\\Ieee', 'Std;Simplorer Elements\\Std', 'Basic_VHDLAMS;Simplorer Elements\\Basic Elements VHDLAMS\\Basic Elements VHDLAMS', 'Digital_Elements;Simplorer Elements\\Digital Elements\\Digital Elements', 'Transformations;Simplorer Elements\\Tools\\Transformations\\Transformations', 'HEV_VHDLAMS;Simplorer Elements\\HEV VHDLAMS\\HEV VHDLAMS', 'automotive_vda;Simplorer Elements\\VDALibs VHDLAMS\\automotive_vda', 'example_boardnet;Simplorer Elements\\VDALibs VHDLAMS\\example_boardnet', 'example_ecar;Simplorer Elements\\VDALibs VHDLAMS\\example_ecar', 'fundamentals_vda;Simplorer Elements\\VDALibs VHDLAMS\\fundamentals_vda', 'hybrid_emc_vda;Simplorer Elements\\VDALibs VHDLAMS\\hybrid_emc_vda', 'megma;Simplorer Elements\\VDALibs VHDLAMS\\megma', 'modelica_rotational;Simplorer Elements\\VDALibs VHDLAMS\\modelica_rotational', 'modelica_thermal;Simplorer Elements\\VDALibs VHDLAMS\\modelica_thermal', 'modelica_translational;Simplorer Elements\\VDALibs VHDLAMS\\modelica_translational', 'spice2vhd;Simplorer Elements\\VDALibs VHDLAMS\\spice2vhd', 'spice2vhd_devices;Simplorer Elements\\VDALibs VHDLAMS\\spice2vhd_devices', 'aircraft_electrical_vhdlams;Simplorer Elements\\Aircraft Electrical VHDLAMS\\Aircraft Electrical VHDLAMS', 'power_system_vhdlams;Simplorer Elements\\Power System VHDLAMS\\Power System VHDLAMS')
@@ -894,8 +894,8 @@ $begin 'AnsoftProject'
 				$end 'Properties'
 				CompExtID=6
 				$begin 'Parameters'
-					MenuProp('CoSimulator', 'D', '', 'DefaultNetlist', 0)
 					ButtonProp('CosimDefinition', 'D', '', '', 'Edit', 40501, ButtonPropClientData())
+					MenuProp('CoSimulator', 'D', '', 'DefaultNetlist', 0)
 				$end 'Parameters'
 				$begin 'CosimDefinitions'
 					$begin 'CosimDefinition'
@@ -911,7 +911,7 @@ $begin 'AnsoftProject'
 			$end 'Maxwell2DDesign3'
 		$end 'Compdefs'
 	$end 'Definitions'
-	DesignIDServer=15
+	DesignIDServer=18
 	MoveBackwards=false
 	$begin 'Maxwell2DModel'
 		RepRewriteV2=true
@@ -18900,8 +18900,6 @@ $begin 'AnsoftProject'
 					PercentError=1
 					SolveMatrixAtLast=true
 					PercentError=1
-					CacheSaveKind='Delta'
-					ConstantDelta='0s'
 					NonLinearResidual=0.0001
 					SmoothBHCurve=false
 					$begin 'MuOption'
@@ -19025,26 +19023,6 @@ $begin 'AnsoftProject'
 								CreateIndexedSubsweepFlag=false
 							$end 'PostprocessSweep'
 							$begin 'Sweep'
-								Variable='fractions'
-								Column='1'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='thet'
-								Column='0deg;5deg;10deg;15deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='N'
-								Column='257'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='I'
-								Column='0.14142135623731A'
-								Units='A'
-							$end 'Sweep'
-							$begin 'Sweep'
 								Variable='Pass'
 								Column='1;2'
 								Units=''
@@ -19061,23 +19039,7 @@ $begin 'AnsoftProject'
 							MoveBackwards=false
 							IDMap()
 						$end 'QuantityIDs'
-						SimValue('L(PhaseA,PhaseA)', 1, 22, false, SimValueID=164, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('L(PhaseA,PhaseB)', 1, 22, false, SimValueID=165, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('L(PhaseA,PhaseC)', 1, 22, false, SimValueID=166, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('L(PhaseB,PhaseA)', 1, 22, false, SimValueID=167, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('L(PhaseB,PhaseB)', 1, 22, false, SimValueID=168, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('L(PhaseB,PhaseC)', 1, 22, false, SimValueID=169, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('L(PhaseC,PhaseA)', 1, 22, false, SimValueID=170, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('L(PhaseC,PhaseB)', 1, 22, false, SimValueID=171, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('L(PhaseC,PhaseC)', 1, 22, false, SimValueID=172, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Matrix1.CplCoef(phaseA_1,phaseA_1)', 1, 90, false, SimValueID=184, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Matrix1.L(PHASEA,PHASEA)', 1, 22, false, SimValueID=185, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Matrix1.Lnom(phaseA_1,phaseA_1)', 1, 22, false, SimValueID=186, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Matrix1.MagFlux(PHASEA)', 1, 152, false, SimValueID=187, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Matrix1.MagFluxNom(phaseA_1)', 1, 152, false, SimValueID=188, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Area(Band)', 1, 235, false, SimValueID=189, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Matrix1.CplCoef(phaseA_1,phaseA_1)', 1, 90, false, SimValueID=190, 0, 0, 2, 0, false, false, 1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Area(Band)', 1, 235, false, SimValueID=191, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0, 'PC', false, '1')
+						SimValue('Matrix1.CplCoef(phaseA_1,phaseA_1)', 1, 90, false, SimValueID=201, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'PostprocessSweep'
 								Variable='NormalizedDistance'
@@ -19115,26 +19077,6 @@ $begin 'AnsoftProject'
 								Increment=0.0872664625997165
 								CreateIndexedSubsweepFlag=false
 							$end 'PostprocessSweep'
-							$begin 'Sweep'
-								Variable='fractions'
-								Column='1'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='thet'
-								Column='0deg;5deg;10deg;15deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='N'
-								Column='257'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='I'
-								Column='0.14142135623731A'
-								Units='A'
-							$end 'Sweep'
 						$end 'Sweeps'
 					$end 'SimDataExtractor'
 				$end 'Solution'
@@ -20873,7 +20815,7 @@ $begin 'AnsoftProject'
 							MoveBackwards=false
 							IDMap()
 						$end 'QuantityIDs'
-						SimValue('CoggingTorqueParameter', 1, 125, false, SimValueID=210, 53028, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('CoggingTorqueParameter', 1, 125, false, SimValueID=221, 53028, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 					$end 'SimDataExtractor'
 				$end 'Solution'
 			$end 'SimSetup'
@@ -21768,24 +21710,12 @@ $begin 'AnsoftProject'
 	$end 'RMxprtDesign'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
-		Refdes('1', 'U2')
 		Refdes('4', 'U5')
+		Refdes('1', 'U2')
+		Refdes('6', 'U3')
 		Refdes('0', 'U1')
 		Refdes('5', 'U6')
 		$begin 'CompInstances'
-			$begin 'Compinst'
-				ID='1'
-				Status='Status'
-				CompName='RMxprtDesign2'
-				GatesInUse()
-				$begin 'Properties'
-					TextProp('ID', 'SRID', '', '1')
-				$end 'Properties'
-				$begin 'Parameters'
-					MenuProp('CoSimulator', 'OHD', '', 'DefaultNetlist', 0)
-					ButtonProp('CosimDefinition', 'OHD', '', '', 'Edit', 40501, ButtonPropClientData())
-				$end 'Parameters'
-			$end 'Compinst'
 			$begin 'Compinst'
 				ID='4'
 				Status='Status'
@@ -21793,6 +21723,19 @@ $begin 'AnsoftProject'
 				GatesInUse()
 				$begin 'Properties'
 					TextProp('ID', 'SRID', '', '4')
+				$end 'Properties'
+				$begin 'Parameters'
+					MenuProp('CoSimulator', 'OHD', '', 'DefaultNetlist', 0)
+					ButtonProp('CosimDefinition', 'OHD', '', '', 'Edit', 40501, ButtonPropClientData())
+				$end 'Parameters'
+			$end 'Compinst'
+			$begin 'Compinst'
+				ID='1'
+				Status='Status'
+				CompName='RMxprtDesign2'
+				GatesInUse()
+				$begin 'Properties'
+					TextProp('ID', 'SRID', '', '1')
 				$end 'Properties'
 				$begin 'Parameters'
 					MenuProp('CoSimulator', 'OHD', '', 'DefaultNetlist', 0)
@@ -21826,6 +21769,40 @@ $begin 'AnsoftProject'
 				$end 'Parameters'
 			$end 'Compinst'
 		$end 'CompInstances'
+		$begin 'Instance'
+			DesignEditor='RMxprtDesign3'
+			ID='4'
+			$begin 'RMxprtDesignInstance'
+				DesignInstanceID=12
+				$begin 'WindowPosition'
+					$begin 'EditorWindow'
+						Circuit(Machine(Frame(ActivePage('Main', View(WindowPos(3, -1, -1, -10, -33, 104, 104, 959, 277))))))
+					$end 'EditorWindow'
+				$end 'WindowPosition'
+				$begin 'ReportSetup'
+					$begin 'ReportManager'
+						$begin 'Reports'
+						$end 'Reports'
+						NextUniqueID=0
+						MoveBackwards=false
+						$begin 'NextVersID'
+							NextUniqueID=0
+							MoveBackwards=false
+						$end 'NextVersID'
+					$end 'ReportManager'
+					$begin 'Reports'
+					$end 'Reports'
+					$begin 'ReportsWindowInfoList'
+					$end 'ReportsWindowInfoList'
+				$end 'ReportSetup'
+				$begin 'Properties'
+				$end 'Properties'
+				$begin 'UserDefinedDocument'
+					$begin 'Data'
+					$end 'Data'
+				$end 'UserDefinedDocument'
+			$end 'RMxprtDesignInstance'
+		$end 'Instance'
 		$begin 'Instance'
 			DesignEditor='RMxprtDesign2'
 			ID='1'
@@ -28361,47 +28338,13 @@ $begin 'AnsoftProject'
 			$end 'RMxprtDesignInstance'
 		$end 'Instance'
 		$begin 'Instance'
-			DesignEditor='RMxprtDesign3'
-			ID='4'
-			$begin 'RMxprtDesignInstance'
-				DesignInstanceID=12
-				$begin 'WindowPosition'
-					$begin 'EditorWindow'
-						Circuit(Machine(Frame(ActivePage('Main', View(WindowPos(5, -1, -1, -10, -33, 104, 104, 959, 277))))))
-					$end 'EditorWindow'
-				$end 'WindowPosition'
-				$begin 'ReportSetup'
-					$begin 'ReportManager'
-						$begin 'Reports'
-						$end 'Reports'
-						NextUniqueID=0
-						MoveBackwards=false
-						$begin 'NextVersID'
-							NextUniqueID=0
-							MoveBackwards=false
-						$end 'NextVersID'
-					$end 'ReportManager'
-					$begin 'Reports'
-					$end 'Reports'
-					$begin 'ReportsWindowInfoList'
-					$end 'ReportsWindowInfoList'
-				$end 'ReportSetup'
-				$begin 'Properties'
-				$end 'Properties'
-				$begin 'UserDefinedDocument'
-					$begin 'Data'
-					$end 'Data'
-				$end 'UserDefinedDocument'
-			$end 'RMxprtDesignInstance'
-		$end 'Instance'
-		$begin 'Instance'
 			DesignEditor='RMxprtDesign1'
 			ID='0'
 			$begin 'RMxprtDesignInstance'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						Circuit(Machine(Frame(ActivePage('Diagram', View(WindowPos(5, -1, -1, -10, -33, 0, 0, 803, 173))))))
+						Circuit(Machine(Frame(ActivePage('Main', View(WindowPos(5, -1, -1, -10, -33, 0, 0, 803, 173))))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -28435,7 +28378,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=14
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						Circuit(Editor3d(View(WindowPos(3, -1, -1, -8, -31, 52, 52, 903, 225), OrientationMatrix(0.0149999996647239, 1.9692256159054e-10, -2.3388138647995e-10, 0, 3.77814557417366e-10, 0.0149999996647239, -7.55629114834733e-10, 0, -3.77814557417366e-10, -7.55629114834733e-10, 0.0149999996647239, 0, 4.41129586192801e-08, -2.93366611003876e-08, -5.05455875396729, 1, 0, -1.4470899105072, 1.4470899105072, -1, 1, -1.30940198898315, 11.4185199737549), Drawings[36: 'OuterRegion', 'Stator', 'Band', 'InnerRegion', 'Rotor', 'Shaft', 'Mag_0', 'Mag_2', 'Mag_1', 'Mag_3', 'coil_C_2', 'coil_B_5', 'coil_B_7', 'coil_A_6', 'coil_A', 'coil_C_3', 'coil_C_4', 'coil_C', 'coil_B_6', 'coil_C_6', 'coil_B', 'coil_B_2', 'coil_B_3', 'coil_B_4', 'coil_A_4', 'coil_A_7', 'coil_B_1', 'coil_A_5', 'coil_C_5', 'coil_C_1', 'coil_C_7', 'coil_A_1', 'coil_A_2', 'coil_A_3', 'SurfApprox_Mag', 'SurfApprox_Main'], 'View Data'('Render Mode'=1, 'Show Ruler'=1, 'Coordinate Systems View Mode'=0, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=1, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=10, dYForGrid=10, dZForGrid=10, dRForGrid=10, dThetaForGrid=10), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						Circuit(Editor3d(View(WindowPos(5, -1, -1, -8, -31, 52, 52, 903, 225), OrientationMatrix(0.0128575023263693, -1.90672290045768e-05, -0.00772553775459528, 0, 2.3812377548893e-05, 0.0149999801069498, 2.60717388300691e-06, 0, 0.00772552844136953, -1.44998284667963e-05, 0.0128575209528208, 0, 0.148834466934204, 0.00441151857376099, -4.68190002441406, 1, 0, -3.03416633605957, 4.19474077224731, -0.948646306991577, 0.569540977478027, -1.68206119537354, 11.0458612442017), Drawings[36: 'OuterRegion', 'Stator', 'Band', 'InnerRegion', 'Rotor', 'Shaft', 'Mag_0', 'Mag_2', 'Mag_1', 'Mag_3', 'coil_C_2', 'coil_B_5', 'coil_B_7', 'coil_A_6', 'coil_A', 'coil_C_3', 'coil_C_4', 'coil_C', 'coil_B_6', 'coil_C_6', 'coil_B', 'coil_B_2', 'coil_B_3', 'coil_B_4', 'coil_A_4', 'coil_A_7', 'coil_B_1', 'coil_A_5', 'coil_C_5', 'coil_C_1', 'coil_C_7', 'coil_A_1', 'coil_A_2', 'coil_A_3', 'SurfApprox_Mag', 'SurfApprox_Main'], 'View Data'('Render Mode'=1, 'Show Ruler'=1, 'Coordinate Systems View Mode'=0, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=1, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=20, dYForGrid=20, dZForGrid=20, dRForGrid=20, dThetaForGrid=10), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -28513,17 +28456,6 @@ $begin 'ProjectPreview'
 	IsEncrypted=false
 	Thumbnail64=''
 	$begin 'DesignInfo'
-		DesignName='RMxprtDesign2'
-		Notes=''
-		Factory='RMxprt'
-		IsSolved=true
-		'Nominal Setups'[2: 'Setup1', 'Setup2']
-		'Nominal Setup Types'[2: '', '']
-		'Optimetrics Setups'[2: 'ParametricSetup1', 'ParametricSetup2']
-		'Optimetrics Experiment Types'[2: 0, 0]
-		Image64=''
-	$end 'DesignInfo'
-	$begin 'DesignInfo'
 		DesignName='RMxprtDesign3'
 		Notes=''
 		Factory='RMxprt'
@@ -28532,6 +28464,17 @@ $begin 'ProjectPreview'
 		'Nominal Setup Types'[1: '']
 		'Optimetrics Setups'[0:]
 		'Optimetrics Experiment Types'[0:]
+		Image64=''
+	$end 'DesignInfo'
+	$begin 'DesignInfo'
+		DesignName='RMxprtDesign2'
+		Notes=''
+		Factory='RMxprt'
+		IsSolved=true
+		'Nominal Setups'[2: 'Setup1', 'Setup2']
+		'Nominal Setup Types'[2: '', '']
+		'Optimetrics Setups'[2: 'ParametricSetup1', 'ParametricSetup2']
+		'Optimetrics Experiment Types'[2: 0, 0]
 		Image64=''
 	$end 'DesignInfo'
 	$begin 'DesignInfo'
@@ -28556,7 +28499,7 @@ $begin 'ProjectPreview'
 		'Optimetrics Experiment Types'[1: 0]
 		Image64='/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE\
 BAQICAQECAQEBAgICAgICAgICAQICAgICAgICAgL/2wBDAQEBAQEBAQEBAQECAQEBAgICAgICAgICAg\
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgL/wAARCADIAFoDASIAAhEBAxEB/\
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgL/wAARCADIAMgDASIAAhEBAxEB/\
 8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQR\
 BRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUp\
 TVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5us\
@@ -28569,6 +28512,13 @@ gAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACii\
 igAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi\
 iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAC\
 iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA\
-CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/Z'
+CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK\
+ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK\
+KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKK\
+KKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK\
+KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA\
+KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo\
+AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q\
+=='
 	$end 'DesignInfo'
 $end 'ProjectPreview'

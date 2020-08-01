@@ -1,13 +1,49 @@
 $begin '$base_index$'
   $begin 'properties'
     all_levels=000000000000
-    time(year=000000002020, month=000000000007, day=000000000005, hour=000000000022, min=000000000013, sec=000000000043)
+    time(year=000000002020, month=000000000007, day=000000000031, hour=000000000015, min=000000000023, sec=000000000004)
     version=000000000000
   $end 'properties'
   $begin '$base_index$'
     $index$(pos=000000010271, lin=000000000249, lvl=000000000000)
   $end '$base_index$'
 $end '$base_index$'
+$begin 'SolutionBlock1'
+	ProductName=''
+	CircuitName='RMxprtDesign2'
+	VersionID=38
+	PostProcess=false
+	LossLess=true
+	NextUniqueID=240
+	MoveBackwards=false
+	$begin 'VariationIDs'
+		Map(V='thick=\'2.5mm\'', ID=52)
+		Map(V='thick=\'2.7mm\'', ID=53)
+		Map(V='thick=\'2.9mm\'', ID=54)
+		Map(V='thick=\'3.1mm\'', ID=55)
+		Map(V='thick=\'3.3mm\'', ID=56)
+		Map(V='thick=\'3.5mm\'', ID=57)
+		Map(V='thick=\'3.5mm\' voltage=\'110V\'', ID=87)
+		Map(V='thick=\'3.5mm\' voltage=\'165V\'', ID=88)
+		Map(V='thick=\'3.5mm\' voltage=\'220V\'', ID=89)
+		Map(V='thick=\'3.5mm\' voltage=\'275V\'', ID=90)
+		Map(V='thick=\'3.5mm\' voltage=\'330V\'', ID=91)
+		Map(V='thick=\'3.7mm\'', ID=58)
+		Map(V='thick=\'3.9mm\'', ID=59)
+		Map(V='thick=\'4.1mm\'', ID=60)
+		Map(V='thick=\'4.3mm\'', ID=61)
+		Map(V='thick=\'4.5mm\'', ID=62)
+	$end 'VariationIDs'
+	$begin 'LinkedDataList'
+	$end 'LinkedDataList'
+$end 'SolutionBlock1'
+$begin 'BlockMapName'
+	FileHeader='SolutionBlock1'
+	'SolutionKey(SimSetup=23, Instance=\'SetupDefinition\', Solution=-1, VersionID=38)'='SolutionBlock3'
+	'SolutionKey(SimSetup=23, Instance=\'SolutionDefinition\', Solution=24, VersionID=38)'='SolutionBlock2'
+	'SolutionKey(SimSetup=72, Instance=\'SetupDefinition\', Solution=-1, VersionID=0)'='SolutionBlock5'
+	'SolutionKey(SimSetup=72, Instance=\'SolutionDefinition\', Solution=73, VersionID=0)'='SolutionBlock4'
+$end 'BlockMapName'
 $begin 'SolutionBlock2'
 	SolutionName='Performance'
 	SolutionID=24
@@ -109,13 +145,6 @@ $begin 'SolutionBlock2'
 		MCurvesData(VID=91, Ver=38, Dir='DV91_SOL24_V38.MCurvesData/')
 	$end 'CurvesDataFiles'
 $end 'SolutionBlock2'
-$begin 'BlockMapName'
-	FileHeader='SolutionBlock1'
-	'SolutionKey(SimSetup=23, Instance=\'SetupDefinition\', Solution=-1, VersionID=38)'='SolutionBlock3'
-	'SolutionKey(SimSetup=23, Instance=\'SolutionDefinition\', Solution=24, VersionID=38)'='SolutionBlock2'
-	'SolutionKey(SimSetup=72, Instance=\'SetupDefinition\', Solution=-1, VersionID=0)'='SolutionBlock5'
-	'SolutionKey(SimSetup=72, Instance=\'SolutionDefinition\', Solution=73, VersionID=0)'='SolutionBlock4'
-$end 'BlockMapName'
 $begin 'SolutionBlock3'
 	SimSetupID=23
 	SimSetupName='Setup1'
@@ -174,38 +203,10 @@ $begin 'SolutionBlock5'
 	VersionID=0
 	SolveSetupID=3
 $end 'SolutionBlock5'
-$begin 'SolutionBlock1'
-	ProductName=''
-	CircuitName='RMxprtDesign2'
-	VersionID=38
-	PostProcess=false
-	LossLess=true
-	NextUniqueID=211
-	MoveBackwards=false
-	$begin 'VariationIDs'
-		Map(V='thick=\'2.5mm\'', ID=52)
-		Map(V='thick=\'2.7mm\'', ID=53)
-		Map(V='thick=\'2.9mm\'', ID=54)
-		Map(V='thick=\'3.1mm\'', ID=55)
-		Map(V='thick=\'3.3mm\'', ID=56)
-		Map(V='thick=\'3.5mm\'', ID=57)
-		Map(V='thick=\'3.5mm\' voltage=\'110V\'', ID=87)
-		Map(V='thick=\'3.5mm\' voltage=\'165V\'', ID=88)
-		Map(V='thick=\'3.5mm\' voltage=\'220V\'', ID=89)
-		Map(V='thick=\'3.5mm\' voltage=\'275V\'', ID=90)
-		Map(V='thick=\'3.5mm\' voltage=\'330V\'', ID=91)
-		Map(V='thick=\'3.7mm\'', ID=58)
-		Map(V='thick=\'3.9mm\'', ID=59)
-		Map(V='thick=\'4.1mm\'', ID=60)
-		Map(V='thick=\'4.3mm\'', ID=61)
-		Map(V='thick=\'4.5mm\'', ID=62)
-	$end 'VariationIDs'
-	$begin 'LinkedDataList'
-	$end 'LinkedDataList'
-$end 'SolutionBlock1'
-$begin 'ResponseSurfaceCache'
-	ResponseSurfaceCache()
-$end 'ResponseSurfaceCache'
+$begin 'OptimetricsResults'
+	'0:0'='OptimetricsResult1'
+	'1:0'='OptimetricsResult2'
+$end 'OptimetricsResults'
 $begin 'OptimetricsResult2'
 	V=2
 	svi('thick', '3.5mm')
@@ -224,10 +225,9 @@ $begin 'OptimetricsResult2'
 	var(3.500000000000000e-03, 3.300000000000000e+02)
 	gvs(3.300000000000000e+02)
 $end 'OptimetricsResult2'
-$begin 'OptimetricsResults'
-	'0:0'='OptimetricsResult1'
-	'1:0'='OptimetricsResult2'
-$end 'OptimetricsResults'
+$begin 'ResponseSurfaceCache'
+	ResponseSurfaceCache()
+$end 'ResponseSurfaceCache'
 $begin 'OptimetricsResult1'
 	V=2
 	vi('thick', '3.5mm', '3.5mm', '3.5mm')
@@ -259,15 +259,15 @@ $end 'OptimetricsResult1'
 $begin '$index$'
 	$begin '$index$'
 		OptimetricsResult1(pos=9535, lin=221, lvl=0)
-		SolutionBlock2(pos=370, lin=1, lvl=0)
-		BlockMapName(pos=5363, lin=102, lvl=0)
-		SolutionBlock3(pos=5846, lin=109, lvl=0)
-		SolutionBlock4(pos=5960, lin=115, lvl=0)
-		SolutionBlock5(pos=7783, lin=161, lvl=0)
-		SolutionBlock1(pos=7896, lin=167, lvl=0)
-		ResponseSurfaceCache(pos=8795, lin=196, lvl=0)
-		OptimetricsResult2(pos=8877, lin=199, lvl=0)
-		OptimetricsResults(pos=9425, lin=217, lvl=0)
+		BlockMapName(pos=1269, lin=30, lvl=0)
+		SolutionBlock2(pos=1752, lin=37, lvl=0)
+		SolutionBlock3(pos=6745, lin=138, lvl=0)
+		SolutionBlock4(pos=6859, lin=144, lvl=0)
+		SolutionBlock5(pos=8682, lin=190, lvl=0)
+		SolutionBlock1(pos=370, lin=1, lvl=0)
+		OptimetricsResults(pos=8795, lin=196, lvl=0)
+		OptimetricsResult2(pos=8905, lin=200, lvl=0)
+		ResponseSurfaceCache(pos=9453, lin=218, lvl=0)
 		$base_index$(pos=0, lin=1, lvl=0)
 		$index$(pos=10271, lin=249, lvl=0)
 	$end '$index$'
